@@ -1,0 +1,975 @@
+
+
+
+
+
+@media (min-width:0px) {
+
+
+body{
+
+  background-color: #160C6E;
+  position: relative;
+
+}
+
+.container-fluid{
+
+
+}
+
+.ikinciyuv{
+
+  height: 35rem;
+  width: 35rem;
+  background-color: #3F21D0;
+  border-radius: 50%;
+
+}
+
+.kirmiziyuv{
+
+  height: 20rem;
+  width: 20rem;
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  border-radius: 50%;
+
+}
+
+
+
+.resim-gear{
+
+  width: 24rem;
+}
+
+
+
+.baslik{
+
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+font-size: 40px;
+color: white;
+position: absolute;
+right:1rem;
+bottom: 19rem;
+
+}
+
+
+.düzyazi{
+  width: 20rem;
+  color: white;
+  font-weight: 700;
+  font-size: 10px;
+  position: absolute;
+  justify-content: center;
+  right: 1rem;
+  bottom: 5rem;
+}
+
+.find-out{
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  width: 7rem;
+  height: 2rem;
+  border-radius: 50px;
+  position: absolute;
+  right: 2rem;
+  bottom: 12rem;
+
+}
+
+.find-renk{
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.fa-arrow-right{
+
+  font-weight: lighter;
+}
+
+.vr-shop-logo{
+  width: 4rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.listedekiler{
+  color: white;
+  list-style: none;
+  position: absolute;
+  padding-left: 0 !important;
+  left: 1rem;
+  top: 8rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5rem;
+
+}
+
+.baslik-gear{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.alttakiler{
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+}
+
+.sosyal-medya{
+
+  position: absolute;
+  left: 1rem;
+  bottom: 2rem;
+}
+
+.sos{
+  color: white;
+}
+
+.fa-search{
+  position:absolute;
+  top: 2rem;
+  right: 1rem;
+}
+
+
+}
+
+
+
+@media (min-width:768px) {
+
+
+body{
+
+  background-color: #160C6E;
+  position: relative;
+
+}
+
+.container-fluid{
+
+
+}
+
+.ikinciyuv{
+
+  height: 40rem;
+  width: 40rem;
+  background-color: #3F21D0;
+  border-radius: 50%;
+
+}
+
+.kirmiziyuv{
+
+  height: 25rem;
+  width: 25rem;
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  border-radius: 50%;
+
+}
+
+
+
+.resim-gear{
+
+  width: 29rem;
+}
+
+
+
+.baslik{
+
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+font-size: 50px;
+color: white;
+position: absolute;
+right:6rem;
+bottom: 22rem;
+
+}
+
+
+.düzyazi{
+  width: 20rem;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  position: absolute;
+  right: 12rem;
+  bottom: 4rem;
+
+}
+
+.find-out{
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  width: 8rem;
+  height: 2rem;
+  border-radius: 50px;
+  position: absolute;
+  right: 6rem;
+  bottom: 16rem;
+
+}
+
+.find-renk{
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fa-arrow-right{
+
+  font-weight: lighter;
+}
+
+.vr-shop-logo{
+  width: 4rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.listedekiler{
+  color: white;
+  list-style: none;
+  position: absolute;
+  padding-left: 0 !important;
+  left: 2rem;
+  top: 8rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5rem;
+
+}
+
+.baslik-gear{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.alttakiler{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sosyal-medya{
+
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+
+.sos{
+  color: white;
+}
+
+.fa-search{
+  position:absolute;
+  top: 3rem;
+  right: 2rem;
+}
+
+.cember1{
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10rem;
+  left: 33rem;
+}
+
+.cember2{
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 14rem;
+  left: 10rem;
+}
+
+.cember3{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 19rem;
+  left: 12rem;
+}
+
+.cember4{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 11rem;
+  left: 17rem;
+}
+
+
+
+}
+
+@media (min-width:992px) {
+
+
+body{
+
+  background-color: #160C6E;
+  position: relative;
+
+}
+
+.container-fluid{
+
+
+}
+
+.ikinciyuv{
+
+  height: 50rem;
+  width: 50rem;
+  background-color: #3F21D0;
+  border-radius: 50%;
+
+}
+
+.kirmiziyuv{
+
+  height: 35rem;
+  width: 35rem;
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  border-radius: 50%;
+
+}
+
+
+
+.resim-gear{
+
+  width: 40rem;
+}
+
+
+
+.baslik{
+
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+font-size: 80px;
+color: white;
+position: absolute;
+right:4rem;
+bottom: 27rem;
+
+}
+
+
+.düzyazi{
+  width: 20rem;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  position: absolute;
+  right: 19rem;
+  bottom: 4rem;
+}
+
+.find-out{
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  width: 10rem;
+  height: 3rem;
+  border-radius: 50px;
+  position: absolute;
+  right: 10rem;
+  bottom: 20rem;
+
+}
+
+.find-renk{
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.fa-arrow-right{
+
+  font-weight: lighter;
+}
+
+.vr-shop-logo{
+  width: 4rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.listedekiler{
+  color: white;
+  list-style: none;
+  position: absolute;
+  padding-left: 0 !important;
+  left: 2rem;
+  bottom: 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 2.3rem;
+
+}
+
+.baslik-gear{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.alttakiler{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sosyal-medya{
+
+  position: absolute;
+  left: 2rem;
+  bottom: 5rem;
+}
+
+.sos{
+  color: white;
+}
+
+.fa-search{
+  position:absolute;
+  top: 3rem;
+  right: 3rem;
+}
+
+.cember1{
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10rem;
+  left: 9rem;
+}
+
+.cember2{
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 14rem;
+  left: 10rem;
+}
+
+.cember3{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 14rem;
+  left: 52rem;
+}
+
+.cember4{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 11rem;
+  left: 17rem;
+}
+
+.cember5{
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 12rem;
+  left: 13rem;
+}
+
+.cember6{
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 20rem;
+  left: 15rem;
+}
+
+.cember7{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 30rem;
+  left: 23rem;
+}
+
+.cember8{
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10rem;
+  left: 33rem;
+}
+
+@media (min-width:1200px) {
+
+
+body{
+
+  background-color: #160C6E;
+  position: relative;
+
+}
+
+.container-fluid{
+
+
+}
+
+.ikinciyuv{
+
+  height: 70rem;
+  width: 70rem;
+  background-color: #3F21D0;
+  border-radius: 50%;
+
+}
+
+.kirmiziyuv{
+
+  height: 40rem;
+  width: 40rem;
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  border-radius: 50%;
+
+}
+
+
+
+.resim-gear{
+
+  width: 48rem;
+}
+
+
+
+.baslik{
+
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+font-size: 80px;
+color: white;
+position: absolute;
+right:8rem;
+bottom: 36rem;
+
+}
+
+
+.düzyazi{
+  width: 20rem;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  position: absolute;
+  right:  0rem;
+  bottom: 31rem;
+}
+
+.find-out{
+  background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+  width: 10rem;
+  height: 3rem;
+  border-radius: 50px;
+  position: absolute;
+  right: 15rem;
+  bottom: 26rem;
+
+}
+
+.find-renk{
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.fa-arrow-right{
+
+  font-weight: lighter;
+}
+
+.vr-shop-logo{
+  width: 4rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.listedekiler{
+  color: white;
+  list-style: none;
+  position: absolute;
+  padding-left: 0 !important;
+  left: 2rem;
+  top: 29rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 2.3rem;
+
+}
+
+.baslik-gear{
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.alttakiler{
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.sosyal-medya{
+
+  position: absolute;
+  left: 2rem;
+  bottom: 12rem;
+}
+
+.sos{
+  color: white;
+}
+
+.fa-search{
+  position:absolute;
+  top: 3rem;
+  right: 2rem;
+}
+
+.cember1{
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10rem;
+  left: 33rem;
+}
+
+.cember2{
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 14rem;
+  left: 10rem;
+}
+
+.cember3{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 14rem;
+  left: 22rem;
+}
+
+.cember4{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 11rem;
+  left: 17rem;
+}
+
+.cember5{
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 12rem;
+  left: 53rem;
+}
+
+.cember6{
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 20rem;
+  left: 65rem;
+}
+
+.cember7{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 30rem;
+  left: 33rem;
+}
+
+.cember8{
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 7rem;
+  left: 33rem;
+}
+
+
+@media (min-width:1600px) {
+
+
+  body{
+
+    background-color: #160C6E;
+    position: relative;
+
+  }
+
+  .container-fluid{
+
+
+  }
+
+  .ikinciyuv{
+
+    height: 70rem;
+    width: 70rem;
+    background-color: #3F21D0;
+    border-radius: 50%;
+
+  }
+
+  .kirmiziyuv{
+
+    height: 40rem;
+    width: 40rem;
+    background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+    border-radius: 50%;
+
+  }
+
+
+
+  .resim-gear{
+
+    width: 48rem;
+  }
+
+
+
+  .baslik{
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 120px;
+  color: white;
+  position: absolute;
+  right:18rem;
+  bottom: 35rem;
+
+  }
+
+
+  .düzyazi{
+    width: 20rem;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    position: absolute;
+    right: 18rem;
+    bottom: 31rem;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5rem;
+  }
+
+  .düzyazi2{
+    display: flex;
+    justify-content: flex-end;
+    letter-spacing: 0.1rem;
+  }
+
+  .find-out{
+    background: linear-gradient(321.25deg, #DF387C -33.39%, #FF602C 103.69%);
+    width: 10rem;
+    height: 3rem;
+    border-radius: 50px;
+    position: absolute;
+    right: 18rem;
+    bottom: 26rem;
+
+  }
+
+  .find-renk{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .fa-arrow-right{
+
+    font-weight: lighter;
+
+  }
+
+  .vr-shop-logo{
+    width: 4rem;
+    position: absolute;
+    top: 5rem;
+    left: 17rem;
+  }
+
+  .listedekiler{
+    color: white;
+    list-style: none;
+    position: absolute;
+    padding-left: 0 !important;
+    left: 17rem;
+    bottom: 30rem;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 2.3rem;
+
+  }
+
+  .baslik-gear{
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .alttakiler{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .sosyal-medya{
+
+    position: absolute;
+    left: 17rem;
+    bottom: 8rem;
+  }
+
+  .sos{
+    color: white;
+  }
+
+  .fa-search{
+    position:absolute;
+    top: 5rem;
+    right: 17rem;
+  }
+
+  .cember1{
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 10rem;
+    left: 33rem;
+  }
+
+  .cember2{
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 14rem;
+    left: 70rem;
+  }
+
+  .cember3{
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 14rem;
+    left: 92rem;
+  }
+
+  .cember4{
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 11rem;
+    left: 97rem;
+  }
+
+  .cember5{
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 13rem;
+    left: 71rem;
+  }
+
+  .cember6{
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20rem;
+    left: 65rem;
+  }
+
+  .cember7{
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 30rem;
+    left: 33rem;
+  }
+
+  .cember8{
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10rem;
+    left: 33rem;
+  }
+
+}

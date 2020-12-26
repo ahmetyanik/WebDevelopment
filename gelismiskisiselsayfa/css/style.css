@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grandstander&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.profil-resmi {
+  border-radius: 75px 0 0 0;
+  border: 2px dashed;
+  width: 150px;
+  height: 150px;
+}
+
+.hakkimda {
+  border: 3px solid;
+  border-radius: 20px;
+  padding: 2%;
+  background-color: #cffffe;
+  top: 10px;
+  
+}
+
+.hakkimda-yazi {
+  padding-left: 2rem;
+
+}
+
+.hobilerim {
+  border-radius: 20px;
+  margin: 2% 0;
+  border: 3px dashed red;
+  padding: 2%;
+  background-color: #f9f7d9;
+}
+
+.hobilerim-yazi {
+  padding-right: 2rem;
+}
+
+.hobi-resmi {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.bildigim-diller {
+  border-radius: 20px;
+  border: 3px solid;
+  padding: 2%;
+  background-color: #fce2ce;
+}
+
+.bildigim-diller-yazi {
+  padding-left: 2rem;
+}
+
+.bildigim-diller-resmi {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+h1 {
+  border-left: 10px solid red;
+  padding: 10px;
+  background-color: #ffffff80;
+  al
+}
+
+.container {
+  background-color: #CBF1F5;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.container-alt {
+display: flex;
+padding-left: 100px;
+padding-right: 100px;
+
+
+}
+
+.linkler a:hover {
+  background-color: #1d3461;
+  border: 2px solid #1d3461;
+  color: white;
+}
+
+.linkler a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 5px;
+  border: 2px solid #06b7d8;
+  border-radius: 5px;
+  background-color: white;
+  color: #06b7d8;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+  margin-left: 10px;
+}
+
+.logo {
+  display: inline-block;
+  margin: 10px;
+  color: #cc0e74;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: cursive;
+}
+
+.linkler {
+  height: 75px;
+  margin-top: 10px;
+  float: right;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sol-sag-padding {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.arkaplan-üstkisim {
+  background-color: #fff8cd;
+
+}
+
+/*En alt kisim*/
+
+
+
+.footer-arkaplan{
+  background-color: #232F3E;
+}
+
+
+
+
+.sabit{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  color: white;
+}
+
+
+
+
+.baslik{
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.menü{
+
+  width: 25%;
+  padding: 15px;
+}
+
+.menü .baslik{
+  color: white;
+  font-weight: 700;
+}
+
+.menü .baslik a{
+  color: white;
+  text-decoration: none;
+}
+
+.menü ul{
+  padding: 0;
+}
+
+.menü ul li{
+  list-style-type: none;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.menü ul li a :hover{
+  text-decoration: underline;
+}
+
+
+
+
+.üstegeridön{
+  display: flex;
+  justify-content: center;
+
+  width: 30px;
+  height: 40px;
+}
+
+.altlink{
+  display: flex;
+  justify-content: center;
+  margin: 0,auto;
+  background-color: #37475A;
+  color: white;
+  text-decoration: none;
+}
+
+.altlink:hover{
+  text-decoration: underline;
+  background-color: green;
+}
+
+
+.ortala{
+  display: flex;
+  color: white;
+
+
+  align-items: center;
+
+}

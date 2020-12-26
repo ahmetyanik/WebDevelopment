@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bul Karayi Al Parayi</title>
+  <link rel="stylesheet" href="css\bootstrap.css">
+  <link rel="stylesheet" href="C:\Users\ahmet\Desktop\WEBDEV\AHMET HTML\WebDevelopment\DOM\yilSonuOrtalama\css\style.css">
+</head>
+
+<body class="bg-dark">
+
+  <div class="container ">
+
+    <div class="d-flex justify-content-around kartlar-bölümü">
+
+      <div class="d-flex kartlar ">
+        <img onclick="birinciKapakAcma()" class="kart kart-kapak  " src="C:\Users\ahmet\Desktop\WEBDEV\AHMET HTML\WebDevelopment\DOM\bulkarayiresimler\arkayüz.png" alt="">
+        <img  class="kart kart1 " src="" alt="">
+      </div>
+
+      <div class="d-flex kartlar">
+        <img onclick="ikinciKapakAcma()" class="kart kart-kapak " src="C:\Users\ahmet\Desktop\WEBDEV\AHMET HTML\WebDevelopment\DOM\bulkarayiresimler\arkayüz.png" alt="">
+        <img class="kart kart2" src="" alt="">
+      </div>
+
+      <div class="d-flex kartlar">
+        <img onclick="ucuncuKapakAcma()" class="kart kart-kapak" src="C:\Users\ahmet\Desktop\WEBDEV\AHMET HTML\WebDevelopment\DOM\bulkarayiresimler\arkayüz.png" alt="">
+        <img class="kart kart3" src="" alt="">
+      </div>
+
+    </div>
+
+    <div class="d-flex buton justify-content-center mt-5">
+      <button class="" onclick="renkDegistir()" id="button" type="button" name="button">Dark Mode</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var bodyElementi = document.body;
+    var buttonElementi = document.getElementsByTagName("button")[0];
+    bodyElementi.classList.contains("bg-dark");
+    buttonElementi.innerText = "Light Mod";
+
+    var kart1Elementi = document.getElementsByClassName("kart1")[0];
+    var kart2Elementi = document.getElementsByClassName("kart2")[0];
+    var kart3Elementi = document.getElementsByClassName("kart3")[0];
+
+
+    function renkDegistir() {
+      if (bodyElementi.classList.contains("bg-dark")) {
+        buttonElementi.innerText="Dark Mod";
+        bodyElementi.classList.toggle("bg-dark");
+      } else {
+        bodyElementi.classList.toggle("bg-dark");
+        buttonElementi.innerText="Light Mod";
+      }
+    }
+
+    var array = [];
+
+    function rastgeleSayilar() {
+
+      for (var i = 0; i < 3; i++) {
+
+        array[i] = Math.floor(Math.random() * 3) + 1;
+
+      }
+      if (array[0] == array[1] || array[0] == array[2] || array[1] == array[2]) {
+
+        rastgeleSayilar();
+
+      }
+    }
+
+    rastgeleSayilar();
+    var birinci = array[0];
+    var ikinci = array[1];
+    var ucuncu = array[2];
+
+    var resimAdresi1 = birinci + ".png";
+    var resimAdresi2 = ikinci + ".png";
+    var resimAdresi3 = ucuncu + ".png";
+
+    kart1Elementi.setAttribute("src", resimAdresi1);
+    kart2Elementi.setAttribute("src", resimAdresi2);
+    kart3Elementi.setAttribute("src", resimAdresi3);
+
+    var classIsmi="kapakkaldir";
+
+
+
+    function birinciKapakAcma(){
+    document.querySelectorAll("img")[0].setAttribute("class",classIsmi);
+    }
+    function ikinciKapakAcma(){
+    document.querySelectorAll("img")[2].setAttribute("class",classIsmi);
+    }
+    function ucuncuKapakAcma(){
+    document.querySelectorAll("img")[4].setAttribute("class",classIsmi);
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+.hakkimda{
+  background-color: #cffffe;
+}
+
+.profil-resmi{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+}
+
+.baslik-ve-yazi{
+display: flex;
+}

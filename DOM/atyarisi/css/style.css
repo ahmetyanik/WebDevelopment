@@ -1,0 +1,100 @@
+.yarisciEkleme{
+  position: absolute;
+  top: 5vh;
+  right: 10vh;;
+}
+
+.yarisciKutu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  padding: 0.2rem;
+}
+
+.yarisciIsimKutusu1{
+  width: 30vh;
+  height: 10vh;
+  border: 3px solid;
+  position: absolute;
+  top: 15vh;
+  right: 5vh;
+}
+
+.yarisciIsimKutusu2{
+  width: 30vh;
+  height: 10vh;
+  border: 3px solid;
+  position: absolute;
+  top: 40vh;
+  right: 5vh;
+}
+.yarisciIsimKutusu3{
+  width: 30vh;
+  height: 10vh;
+  border: 3px solid;
+  position: absolute;
+  top: 68vh;
+  right: 5vh;;
+}
+.kulvarlar{
+  width: 140vh;
+  height: 20vh;
+  background-color: white;
+  margin: 3vh;
+  display: flex;
+  align-items: center;
+  border: 1px solid green;
+}
+
+.birinciKulvar{
+  position: relative;
+}
+
+.ucuncuKulvar{
+  position: relative;
+}
+
+.at1{
+  position: absolute;
+  z-index: 10;
+}
+
+.cimen1{
+  width: 140vh;
+  height: 7vh;
+  background-color: #f0e2d0;
+  position: absolute;
+  bottom: 0;
+}
+
+.at2{
+  position: absolute;
+  z-index: 10;
+}
+
+.cimen2{
+  width: 140vh;
+  height: 4vh;
+  background-color: #f0e2d0;
+  position: absolute;
+  bottom: 0;
+}
+
+.at3{
+  position: absolute;
+  z-index: 10;
+}
+
+.cimen3{
+  width: 140vh;
+  height: 4vh;
+  background-color: #f0e2d0;
+  position: absolute;
+  bottom: 0;
+}
+
+img{
+  width: 5rem;
+}

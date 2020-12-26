@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css\bootstrap.css">
+  <link rel="stylesheet" href="css\style.css">
+
+</head>
+
+<body>
+
+  <div class="d-flex justify-content-center flex-column mt-5">
+
+  <div class="yarisciEkleme">
+    <button onclick="yarisciEkle()" type="button" class="btn btn-warning" onsubmit="return false">Yarisci Ekle</button>
+  </div>
+
+  <div class="yarisciKutu yarisciIsimKutusu1"></div>
+  <div class="yarisciKutu yarisciIsimKutusu2"></div>
+  <div class="yarisciKutu yarisciIsimKutusu3"></div>
+
+    <div class="birinciKulvar kulvarlar">
+      <div class="kosu1" style="padding-left: 0vh;">
+        <img  src="3.jpg" alt="">
+      </div>
+      <div class="cimen1">
+
+      </div>
+    </div>
+
+    <div class="birinciKulvar kulvarlar">
+      <div class="kosu2" style="padding-left: 0vh;">
+        <img  src="3.jpg" alt="" class="at2">
+      </div>
+      <div class="cimen2">
+
+      </div>
+
+    </div>
+
+    <div class="ucuncuKulvar kulvarlar">
+      <div class="kosu3" style="padding-left: 0vh;">
+        <img  src="3.jpg" alt="" class="at3">
+      </div>
+
+      <div class="cimen3">
+
+      </div>
+
+    </div>
+
+    <span class="ml-5">
+      <button onclick="atKostur()" type="button" class="btn btn-danger ">At Kostur</button>
+    </span>
+
+    <span class="kazanan"></span>
+
+  </div>
+
+  <script type="text/javascript">
+
+    var yarisci1;
+    var yarisci2;
+    var yarisci3;
+
+    var yarisci1KutusuElementi=document.querySelector(".yarisciIsimKutusu1");
+    var yarisci2KutusuElementi=document.querySelector(".yarisciIsimKutusu2");
+    var yarisci3KutusuElementi=document.querySelector(".yarisciIsimKutusu3");
+
+
+
+  function yarisciEkle(){
+    yarisci1=prompt("Yarisci 1");
+    yarisci1KutusuElementi.innerText=yarisci1;
+    yarisci2=prompt("Yarisci 2");
+    yarisci2KutusuElementi.innerText=yarisci2;
+    yarisci3=prompt("Yarisci 3");
+    yarisci3KutusuElementi.innerText=yarisci3;
+  }
+
+
+  atElementi1=document.querySelectorAll(".kosu1")[0];
+  atElementi2=document.querySelectorAll(".kosu2")[0];
+  atElementi3=document.querySelectorAll(".kosu3")[0];
+
+  var birinciAtRastgeleSayi;
+  var ikinciAtRastgeleSayi;
+  var ucuncuAtRastgeleSayi;
+
+  var at1Count=0;
+  var at2Count=0;
+  var at3Count=0;
+
+  var rastSay1=0;
+  var rastSay2=0;
+  var rastSay3=0;
+
+
+
+  function atKostur(){
+
+  birinciAtRastgeleSayi=Math.floor(Math.random()*4+1);
+  var paddingBirinciAt= "padding-left: "+(rastSay1+birinciAtRastgeleSayi)+"vh;";
+  atElementi1.setAttribute("style",paddingBirinciAt);
+  rastSay1+=birinciAtRastgeleSayi;
+
+
+  ikinciAtRastgeleSayi=Math.floor(Math.random()*4+1);
+  var paddingIkinciAt= "padding-left: "+(rastSay2+ikinciAtRastgeleSayi)+"vh;";
+  atElementi2.setAttribute("style",paddingIkinciAt);
+  rastSay2+=ikinciAtRastgeleSayi;
+
+  ucuncuAtRastgeleSayi=Math.floor(Math.random()*4+1);
+  var paddingUcuncuAt= "padding-left: "+(rastSay3+ucuncuAtRastgeleSayi)+"vh;";
+  atElementi3.setAttribute("style",paddingUcuncuAt);
+  rastSay3+=ucuncuAtRastgeleSayi;
+
+  if (rastSay1+birinciAtRastgeleSayi>=135) {
+
+     yarisci1KutusuElementi.innerHTML="KAZANAN"+" "+yarisci1;
+     yarisci1KutusuElementi.style.backgroundColor="green";
+     yarisci1KutusuElementi.style.color="white";
+
+
+  }else if (rastSay2+ikinciAtRastgeleSayi>=135) {
+
+    yarisci2KutusuElementi.innerHTML="KAZANAN"+" "+yarisci2;
+    yarisci2KutusuElementi.style.backgroundColor="green";
+    yarisci2KutusuElementi.style.color="white";
+
+  }else if(rastSay3+ucuncuAtRastgeleSayi>=135) {
+
+    yarisci3KutusuElementi.innerHTML="KAZANAN"+" "+yarisci3;
+    yarisci3KutusuElementi.style.backgroundColor="green";
+    yarisci3KutusuElementi.style.color="white";
+  }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+@media (min-width:200px) {
+
+.kutu2{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.kutu5{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.yazilar{
+  width: 100% !important;
+}
+
+.buton-download{
+  margin-top: 0  !important;
+}
+
+
+
+.name .form-control {
+    width: 45rem;
+    border: 0;
+    margin-left: 0rem;
+    font-size: 1.5rem;
+}
+
+.send-button {
+    margin-left: 0.5rem;
+}
+
+.footer .container {
+    padding-top: 2rem;
+}
+
+
+}

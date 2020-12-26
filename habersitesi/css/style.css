@@ -1,0 +1,41 @@
+:root{
+
+  --ana-renk: orange;
+  --baslik-boyut:1.8rem;
+}
+
+
+.bodyClass{
+
+  background-color: #f1faee;
+  background-image:  url("https://resimdiyari.com/_data/i/upload/2012/10/11/20121011142538-0d933501-me.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.navbar-brand{
+
+color: var(--ana-renk) !important;
+font-weight: bold;
+font-size: var(--baslik-boyut);
+
+}
+
+.populer-baslik{
+
+  background-color: var(--ana-renk);
+  color: white;
+}
+
+.ekonomi{
+
+  border-left: 3px  var(--ana-renk) solid;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+}
+
+
+.card{
+  border-radius:
+}

@@ -1,0 +1,82 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+color: white;
+margin: 0;
+padding: 0;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.navbar{
+  background-color: black;
+  height: 5.2rem;
+}
+
+
+ul li{
+  list-style: none;
+  color: white;
+}
+
+.navbar ul li a {
+  margin-left: 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover{
+  border: 0.7rem solid red;
+  background-color: red;
+  color: white;
+  border-radius: 15px;;
+
+}
+
+.arka-plan{
+  background-color: green;
+  height: 60rem;
+  width: auto;
+  padding: 8rem;
+}
+
+.arkaplan .resim{
+
+}
+
+.kedi-resim{
+  max-width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
+  margin-bottom: 2rem;
+}
+
+.cizgi-yildiz{
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.cizgi{
+  background-color: white;
+  width: 5rem;
+  height: 0.03rem;
+
+}
+
+.linkler ul{
+  display: flex;
+}

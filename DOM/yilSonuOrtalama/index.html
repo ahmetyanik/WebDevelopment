@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Yil Sonu Ortalama</title>
+
+    <link rel="stylesheet" href="css\bootstrap.css">
+    <link rel="stylesheet" href="css\style.css">
+
+  </head>
+
+  <body class="ahmet">
+
+    <div class="container justify-content-center pt-5">
+<div class=" d-flex justify-content-center ">
+
+<div class="mb-3 ">
+  vize :
+  <input type="text" id="vize" name="" value="">
+</div>
+</div>
+
+<div class=" d-flex justify-content-center ">
+<div class="mb-3 justify-content-center pt-5">
+  final :
+  <input type="text" id="final" name="" value="">
+</div>
+</div>
+
+<div class="d-flex justify-content-center pt-5">
+<button type="button" id="hesapla" onclick="hesapla()"  name="button">Hesapla</button>
+</div>
+
+<div class=" d-flex justify-content-center ml-2 ">
+<div class="justify-content-center pt-5">
+    Yil Sonu Notu:
+    <input type="text" id="yilSonuNotu" name="" value="">
+</div>
+</div>
+
+
+    </div>
+
+    <script type="text/javascript">
+
+    function renkDegistirme(){
+
+      if (not1>85) {
+        var bodyElementi = document.querySelector("body");
+        bodyElementi.classList.toggle("bg-success");
+
+      }else if (not1>70) {
+        var bodyElementi = document.querySelector("body");
+        bodyElementi.classList.toggle("bg-info");
+      }else if (not1>60) {
+        var bodyElementi = document.querySelector("body");
+        bodyElementi.classList.toggle("bg-warning");
+      }else if (not1>45) {
+        var bodyElementi = document.querySelector("body");
+        bodyElementi.classList.toggle("bg-danger");
+      }else {
+        var bodyElementi = document.querySelector("body");
+        bodyElementi.classList.toggle("bg-dark");
+        bodyElementi.classList.toggle("text-light");
+      }
+
+    }
+
+
+      var not1;
+      function hesapla(){
+
+        var vizeElementi= parseInt(document.getElementById("vize").value);
+        var finalElementi = parseInt(document.getElementById("final").value);
+        var yilSonuNotuElementi= (document.getElementById("yilSonuNotu"));
+
+
+        not1 = parseInt(yilSonuNotuElementi.value=vizeElementi*30/100+finalElementi*70/100);
+
+        renkDegistirme();
+
+      }
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

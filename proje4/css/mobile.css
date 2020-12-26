@@ -1,0 +1,28 @@
+@media (max-width:500px) {
+
+h1{
+  font-size: 0.7rem;
+
+}
+
+li{
+  font-size: 0.7rem;
+}
+
+
+.navbar{
+  background-color: black;
+  height: 3.2rem;
+
+
+}
+
+.kedi-resim{
+  width: 20rem;
+  height: 20rem;
+  margin-bottom: 2rem;
+  border-radius: 0 !important;
+}
+
+
+}

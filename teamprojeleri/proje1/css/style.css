@@ -1,0 +1,338 @@
+
+
+body{
+
+background-color: #F1E8E6;
+
+}
+
+.birinci{
+
+  width: 25%;
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin-left: 40px;
+  box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+    -webkit-box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+    -moz-box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+
+}
+
+.fas{
+
+font-size: 1.3rem;
+
+}
+
+.difficulty{
+
+width: 20%;
+padding: 20px 8px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+  -webkit-box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+  -moz-box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+
+  margin-left: 40px;
+
+  box-sizing: border-box;
+
+
+}
+
+.btn{
+  border: 1px solid #F1E8E6;
+  background-color: #F1E8E6;
+}
+
+.dif{
+  margin-left: 27px;
+}
+
+
+.search{
+
+  width: 28%;
+  padding: 20px 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+    -webkit-box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+    -moz-box-shadow: 5px 5px 13px 2px rgba(248, 5, 18, 0.54);
+
+    margin-left: 40px;
+
+    box-sizing: border-box;
+    background-color: tomato;
+
+
+
+}
+
+.borderla{
+  border-radius: 10px;
+}
+
+.arama{
+
+  display: inline-block;
+  color: gray;
+  font-size: 1rem;
+}
+
+.satir{
+  max-width: 100%;
+}
+
+.recipe{
+  border: 0;
+  display: inline-block;
+
+
+}
+
+.recipe:focus{
+  outline: none;
+}
+
+
+input::placeholder{
+  vertical-align: middle;
+
+}
+
+.search-yazi{
+    padding: 2px 0;
+}
+
+.kart{
+
+  margin-left: 60px;
+
+
+
+
+}
+
+.salata{
+  width: 300px;
+  border-radius:  20px 20px 0 0;
+
+}
+
+.alt-beyaz{
+
+  background-color: white;
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  border-radius: 0 0 10px 10px ;
+
+}
+
+.search-kutusu{
+  width: 200px;
+  height: 50px;
+  border: 1px solid gray;
+  background-color: white;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mail-yazisi{
+  text-align: center;
+}
+
+.abone{
+  width: 200px;
+  height: 50px;
+  background-color: tomato;
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+
+.ispanak{
+  margin-left: 60px;
+  width: 700px;
+  border-radius: 30px;
+  box-sizing: border-box;
+
+
+
+
+}
+
+.ispanak-row{
+
+
+margin-left: 10px;
+margin-right: 0;
+
+}
+
+.ispanak-yazi{
+  display: inline;
+}
+
+.ispanak-resim{
+  width: 180px;
+
+  border-radius: 10px !important;
+
+}
+
+body > div.ispanak.mt-4.bg-white.mb-4 > div > div.col-4.p-3 > img{
+
+    margin-left: 0px;
+}
+
+body > div.ispanak.mt-4.bg-white.mb-4 > div > div.col-4.pb-3.pt-3{
+
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.fa-star{
+  color: tomato;
+}
+
+.yazi-14k{
+
+font-weight: 500;
+
+}
+
+.fa-heart{
+
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  font-size: 30px;
+
+
+
+}
+
+.fa-heart:hover{
+  background-color: tomato;
+}
+
+.kalp{
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  border: 1px solid gray;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.kalp:hover{
+  background-color: tomato;
+}
+
+.enAltKisim{
+  width: 1100px;
+  height: 240px;
+  background-color: white;
+  margin-left: 60px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+
+}
+
+
+.ictekiResimler{
+
+padding-top: 50px;
+position: relative;
+
+}
+
+.ictekiResimler .row .col{
+  display: flex;
+  justify-content: center;
+
+}
+
+.ictekiResimler .row{
+
+width: 1000px;
+
+
+
+}
+
+.oklar{
+
+
+  color: tomato;
+
+}
+
+
+
+
+
+.col ul{
+
+  list-style: none;
+}
+
+
+
+.enAltKisim .row img{
+
+  width: 100px;
+  height: 100px ;
+  border-radius: 50px;
+}
+
+
+.enAltKisim .col{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.okyuv{
+
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  align-items: center;
+  border: 1 solid green;
+  justify-content: center;
+}
+
+.tiktik{
+  display: flex;
+  align-items: center;
+  color: tomato;
+}
+
+
+.enAltKisim li{
+  outline: 0 solid !important;
+}
+
+.kalas{
+  box-sizing: border-box;
+}
+
+.ictekiResimler {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ictekiResimler ul{
+  padding-inline-start:0;
+}

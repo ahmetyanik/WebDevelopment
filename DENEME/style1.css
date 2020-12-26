@@ -1,0 +1,38 @@
+.kutu1{
+  display: block;
+  background-color: red;
+  width: 33%;
+  height: 100px;
+  float: left;
+  margin: 1px;
+
+}
+
+.kutu2{
+  display: block;
+  background-color: blue;
+  width: 33%;
+  height: 100px;
+  float: left;
+  margin: 1px;
+}
+.kutu3{
+  float: right;
+  display: block;
+  background-color: green;
+  width: 33%;
+  height: 100px;
+  margin: 1px;
+}
+
+.cember{
+  display: flex;
+  background-color: yellow;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}

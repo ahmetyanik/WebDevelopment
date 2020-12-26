@@ -1,0 +1,305 @@
+
+:root{
+
+  --fontFamily:Poppins;
+}
+
+body{
+  background-color: #FAD961;
+
+
+}
+
+.navbar{
+
+    background-color: #FAD961 !important;
+}
+
+.nav-link{
+  color: black;
+  padding-left: 0 !important;
+}
+
+.b-play{
+
+  font-family: var(--fontFamily);
+  margin-bottom: 10px;
+}
+
+.ortadaki-yazi-grubu{
+
+
+}
+
+.speaker{
+
+  font-family: var(--fontFamily);
+}
+
+
+.fiyat-kutusu{
+  font-family: var(--fontFamily);
+  width: 250px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 30px;
+  align-items: center;
+
+
+
+}
+
+.pledge{
+
+  font-size: 0.7rem;
+  border-left: 1px solid gray ;
+  height: 40px;
+
+}
+
+.resim-alt{
+
+  width: 740px;
+  height: 375px;
+
+}
+
+.alt-ikon{
+  margin-left: 4rem;
+}
+
+.satir-size{
+  font-size: 0.9rem;
+
+
+}
+
+.resmin-solu{
+
+  padding-top: 5rem;
+}
+
+.nav-link{
+  display: inline-block;
+}
+
+.enüst{
+
+  height: 4.2rem;
+}
+
+.sol-resim-üst{
+  width: 2.5rem;
+  margin-left: 54rem;
+}
+
+
+.isim-kate{
+  font-weight: 600;
+
+}
+
+.kare-ikon{
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding-top: 0.3rem;
+}
+
+.crow-baslik{
+  float: left;
+  font-weight: 900;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.font-telif{
+
+  font-weight: 500;
+  font-size: 0.8rem;
+
+
+}
+
+.fa-copyright{
+  font-size: 0.6rem;
+
+}
+
+.linkler-sol{
+  padding-left: 4rem;
+  position: relative;
+  font-weight: 500;
+  font-size: 1rem;
+
+}
+
+.link-üst{
+  position: relative;
+}
+
+.link{
+  color: black;
+  padding-left: 2.3rem;
+}
+
+.contact{
+  position: relative;
+  left: 2.7rem;
+}
+
+.help{
+
+  position:relative;
+  left:2rem;
+}
+
+.alttaki-resim{
+  position: relative;
+}
+
+.sag-alt-linkler{
+
+position: relative;
+}
+
+.term{
+  position: relative;
+  left: 60px;
+  bottom: 30px;
+  color: white;
+}
+
+.privacy{
+  position: relative;
+  left: 100px;
+  bottom: 30px;
+  color: white;
+
+}
+
+.fa-twitter{
+
+  position: relative;
+  left: 400px;
+  bottom: 30px;
+  color: white;
+
+}
+
+
+.fa-facebook-f{
+
+  position: relative;
+  left: 400px;
+  bottom: 30px;
+  color: white;
+
+}
+
+.fa-youtube{
+
+  position: relative;
+  left: 400px;
+  bottom: 30px;
+  color: white;
+
+}
+
+
+
+.alttaki-resim{
+
+
+}
+.resim-alt{
+  position: absolute;
+  bottom: 0;
+}
+
+.contact{
+
+  position: absolute;
+  left: 0;
+
+}
+
+.help{
+
+  position: absolute;
+  right: 0;
+}
+
+.term{
+
+}
+
+.privacy{
+
+
+}
+
+
+
+
+@media (max-width:576px) {
+
+
+
+
+  .sol-resim-üst{
+    width: 2.5rem;
+    margin-left: 18rem;
+
+  }
+
+  .alttaki-resim{
+    background-image: url("C:\Users\ahmet\Desktop\WEBDEV\AHMET HTML\WebDevelopment\proje 2\resimler\speaker.png");
+  }
+
+  .resim-alt{
+
+    width: 483px;
+
+
+
+  }
+
+  .resmin-solu{
+
+    padding-top: 2rem;
+
+  }
+
+  .satir-size{
+
+  text-align: center;
+  }
+
+  .alt-ikonlar{
+    text-align: right;
+  }
+
+  .alt-ikon{
+  margin-left: 0;
+}
+
+
+
+
+/*
+.fa-youtube{
+  position: static;
+  margin-left: 0;
+}
+
+.fa-facebook{
+  position: static;
+  margin-left: 0;
+}
+*/
+
+
+
+
+}

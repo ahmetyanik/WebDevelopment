@@ -1,0 +1,70 @@
+
+.profil-resmi {
+  width: 150px;
+  height: 150px;
+}
+.hakkimda {
+  padding: 2%;
+  background-color: #cffffe;
+}
+.hakkimda-yazi {
+  padding-left: 2rem;
+}
+.hobilerim {
+  padding: 2%;
+  background-color: #f9f7d9;
+  margin: 2% 0;
+}
+.hobilerim-yazi {
+  padding-right: 2rem;
+}
+.hobi-resmi {
+  width: 150px;
+  height: 150px;
+}
+.bildigim-diller {
+  padding: 2%;
+  background-color: #fce2ce;
+}
+.bildigim-diller-yazi {
+  padding-left: 2rem;
+}
+.bildigim-diller-resmi {
+  width: 150px;
+  height: 150px;
+}
+
+.container{
+  background-color: #f08a5d;
+  margin: 0;
+  padding: 10px 100px ;
+}
+
+body{
+margin: 0;
+}
+
+.container-fluid{
+  background-color: #32e0c4;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+a{
+  font-size: 1.3rem;
+  color: #ffefa0;
+  text-decoration: none;
+}
+
+a:hover{
+  color: white;
+}
+
+.logo{
+
+  color: #0f3057;
+  padding: 10px;
+  border: 2px dashed;
+  border-radius: 10px;
+  margin: 5px;
+}

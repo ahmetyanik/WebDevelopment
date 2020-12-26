@@ -1,0 +1,328 @@
+.navbar1{
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #2C3E50;
+
+
+}
+
+.projeteam{
+
+  width: 100%;
+  height: 7rem;
+  background-color: #2C3E50;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+
+}
+
+.navbar1-kutu{
+  width: 70%;
+
+}
+
+
+
+.navbar1-h1{
+  color: white;
+  letter-spacing: 0.02rem;
+  font-weight: bold;
+}
+
+.projeteam ul{
+  margin-bottom: 0 ;
+}
+
+.projeteam ul li{
+  list-style: none;
+}
+
+.projeteam ul li a{
+  color: white;
+  margin-left: 1.3rem;
+}
+
+.linkler-yazi{
+  font-weight: 700;
+}
+
+.link:hover{
+  color: #1ABC9C;
+  text-decoration: none;
+}
+
+.birinci_sayfa{
+  width: 100%;
+  height: 64rem;
+  background-color: #1ABC9C;
+
+
+}
+
+.birinci_sayfa .container{
+  padding-top: 14rem;
+  padding-bottom: 7rem;
+
+}
+
+.birinci_sayfa_baslik{
+  color:white;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  letter-spacing: 0.2rem;
+}
+
+.user-resim{
+margin-bottom: 3rem;
+width: 18rem;
+height: 18rem;
+}
+
+.portfolio{
+  font-size: 3.7rem;
+  color: #2C3E50 !important;
+}
+
+.yildizlar{
+  margin-bottom: 3rem;
+}
+
+.yildizli_bölüm{
+  width: 21rem;
+
+}
+
+.ilk_cizgi{
+  width: 7rem;
+  height: 0.15rem;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.ozellikler-yazi{
+  font-size: 2rem;
+
+}
+
+.ikinci_sayfa{
+  width: 100%;
+  height: 50rem;
+
+}
+
+.ikinci_sayfa.container{
+  padding-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+.ikinci_baslik{
+  font-size: 3.7rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.ikinci_sayfa-yildizli{
+  margin-bottom: 2rem;
+}
+
+.ikinci_cizgi{
+  width: 10rem;
+  height: 0.15rem;
+  background-color: #2C3E50;
+  border: 1px solid #2C3E50;
+
+}
+
+.ikinci_uc_kutu{
+  margin-top: 2.5rem;
+}
+
+.ikinci_sayfa-yildizli .fa-star{
+  color: #2C3E50;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.ikinci_sayfa_kutular .kutu{
+  width: 21.5rem;
+  height: 16rem;
+  border-radius: 5%;
+}
+
+.kutu1{
+  background-color: #BA4C63;
+}
+
+.kutu2{
+  background-color: #1FA4B6;
+}
+
+.kutu3{
+  background-color: #130F0F;
+}
+.kutu4{
+  background-color: #1D83C1;
+}
+
+.kutu5{
+  background-color: #1037B5;
+}
+
+.kutu6{
+  background-color: #CCB2A3;
+}
+
+.resimler-kutu{
+
+width: 13rem;
+height: 13rem;
+border-radius: 50%;
+
+}
+
+.kutu:hover{
+  background-color: #1ABC9C;
+}
+
+.ucuncu-sayfa{
+  width: 100%;
+  height: 49rem;
+  background-color: #1ABC9C;
+}
+
+.ucuncu-sayfa .container{
+  padding-top: 6rem;
+}
+
+.ucuncu-sayfa .ikinci_baslik{
+  font-size: 3.7rem;
+}
+
+
+
+.ucuncu-sayfa-yazi{
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.08rem;
+}
+
+.ucuncu-sayfa .ikinci_cizgi{
+  background-color: white;
+  border: solid 1px white;
+}
+
+.btn-ucuncu-sayfa{
+  background-color: #1ABC9C;
+  border: 1px solid white;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.ucuncu-sayfa .yazi-3{
+  font-size: 1.5rem;
+}
+
+.dorduncu-sayfa{
+  width: 100%;
+  height: 66rem;
+
+}
+
+.dorduncu-sayfa.container{
+  padding-top: 6rem;
+}
+
+.input-boyut{
+  width: 42rem;
+}
+
+.name .form-control{
+  width: 45rem;
+  border: 0;
+  margin-left: 8rem;
+  font-size: 1.5rem;
+}
+
+.input-cizgi{
+  width: 52rem;
+}
+
+.input-cizgi-send-ust{
+  width: 52rem;
+  margin-top: 10rem;
+}
+
+.send-button{
+  margin-left: 8.60rem;
+}
+
+.footer{
+  width: 100%;
+  height: 20rem;
+  background-color: #2C3E50;
+}
+
+.footer .container{
+  padding-top: 5rem;
+}
+
+.footer-basliklar{
+  display: inline-block;
+  color: white;
+  letter-spacing: 0.02rem;
+  font-weight: bold;
+  font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.footer-altbaslik{
+  color: white;
+  letter-spacing: 0.02rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+
+
+}
+
+.footer-altbaslik .start{
+  color: #1ABC9C;
+}
+
+.ikonlar{
+  display: flex;
+  border: 1px solid white;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+
+}
+
+.ikonlar:hover{
+background-color: black;
+text-decoration: none;
+}
+
+
+.alert1{
+  width: 100%;
+  height: 4rem;
+  background-color: black;
+}
+
+
+.resimler-kutu:hover{
+  width: 0;
+  height: 0;
+}

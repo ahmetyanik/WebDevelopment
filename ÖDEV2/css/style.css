@@ -1,0 +1,54 @@
+.arkaplan{
+
+background-color: #f4d9c6;
+padding: 5% 20%;
+
+}
+
+.isim{
+  margin-right: 350px;
+}
+
+.navbar{
+
+  border: solid #ffa5a5;
+  border-radius: 25px;
+  margin-bottom: 3%;
+  background-color: #ffffff;
+
+}
+
+.btn{
+  background-color: #d2f5e3;
+  border: solid #94b4a4;
+  border-radius: 25%;
+}
+
+.resim-kedi{
+  width:250px;
+  height: 250px;
+  border-radius: 50%;
+
+
+}
+
+.alt-ikonlar{
+
+  color: #94b4a4;
+}
+
+.düzyazi{
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+
+  .resim-kedi{
+  margin-bottom: 5%;
+  }
+
+}
+
+.alt-kisim-beyaz{
+  padding:2% 5%;
+}

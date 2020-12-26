@@ -1,0 +1,55 @@
+.container-fluid{
+  padding-left: 0;
+  padding-right: 0 !important;
+}
+
+.alert{
+  width: 100%;
+  background-color: #ffe799;
+  height: 100px;
+  box-sizing: border-box;
+
+
+}
+
+.alert-yazi{
+  font-weight: 700;
+  padding-left: 0.9rem;
+  padding-top: 0.188rem;
+  display: inline-block;
+  padding-right: 0.5rem;
+
+}
+
+.kurslar{
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.canliweb{
+  text-decoration: underline;
+  color: #0f7c90;
+}
+
+.ücgün{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.navbar-brand{
+
+  font-weight: 700;
+  color: #0f7c90;
+}
+
+.search-box{
+  margin-right: 60rem !important;
+
+}
+
+.searchkutu{
+  height: 3rem;
+  width: 30rem;
+  border-radius: 30px;
+  border: 1px solid black;
+}

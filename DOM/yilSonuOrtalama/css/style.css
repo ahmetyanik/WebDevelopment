@@ -1,0 +1,33 @@
+.container{
+  padding-top: 5rem;
+
+}
+
+
+
+.kart{
+  width: 10rem;
+}
+
+.kart-kapak{
+  position: absolute;
+}
+
+.buton{
+  position: absolute;
+  left: 1rem;
+  top: 0rem;
+}
+
+.kart:hover{
+
+  width: 13rem;
+
+
+}
+
+.kapakkaldir{
+  position: absolute;
+  z-index: -1;
+  width: 10rem;
+}

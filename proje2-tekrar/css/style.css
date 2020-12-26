@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+​
+body{
+  height: 100vh;
+  font-size:12px;
+  background-color:#FAD961;
+  color:#1B1B1B;
+  font-family: 'Poppins', sans-serif;
+}
+
+.renk{
+  background-color:#FAD961;
+
+}
+.bluetooth{
+  font-size:3.5rem;
+  font-weight: bold;
+  /*
+  calc(100vh)
+  */
+}
+.rounded-pill{
+  border:2px solid #1B1B1B;
+}
+.money{
+  font-size:1,2rem;
+}
+.speaker{
+  width: 102%;
+  height:375px;
+  position: relative;
+  margin-right: 0px;
+}
+.yazi{
+  width:95%;
+}
+.altlinkler{
+  font-size:12px;
+  font-weight: bold;
+}

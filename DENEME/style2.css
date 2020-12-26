@@ -1,0 +1,41 @@
+.kirmizi{
+  color: #ff0000;
+
+}
+
+.arkaplanrengi{
+  background-color: aqua;
+}
+
+.kutu{
+  width: auto;
+  height: 200px;
+  background-color: red;
+  color: white;
+  margin-left: 50px;
+  margin-top: 150px;
+  margin-right: 50px;
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+.kutu-bir{
+
+  width: auto;
+  height: 200px;
+  background-color: blue;
+  color: white;
+  margin: 0px 100px;
+  padding: 30px 20px;
+}
+
+img{
+  width: 150px;
+  height: 150px
+
+}
+
+.resimler{
+  margin-right: 10px;
+  margin-left: 10px;
+}

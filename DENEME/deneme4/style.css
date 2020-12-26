@@ -1,0 +1,180 @@
+.title{
+  font-size: 1.5rem;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-family: sans-serif;
+
+}
+
+.orderKutusu{
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+
+
+}
+
+.orderKutusu:hover{
+
+  color: white;
+  background-color: black;
+
+}
+
+.link{
+  text-decoration: none;
+}
+
+.order{
+  display: flex;
+  justify-content:center;
+
+  margin: 0 auto;
+
+
+}
+
+.altyazilar{
+
+text-align: center;
+
+}
+
+.fa-check{
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 5px;
+
+}
+
+.fiyat{
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.dolar{
+  display: inline-block;
+  font-size: 1.7rem;
+}
+
+.ücret{
+  display: inline-block;
+  margin-top:10px;
+
+}
+
+
+.ortak{
+
+
+padding: 10px;
+margin: 15px;
+float: left;
+border-radius: 25px;
+box-sizing: border-box;
+
+
+
+}
+
+.icon1{
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg,#6AB1EF 0%,#EE35E4 100%);
+  border-radius: 50%;
+  font-size: 3.2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.icon2{
+
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg,#F723D4 0%, #FDED7D 100%);
+  border-radius: 50%;
+  font-size: 3.2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+
+}
+
+.icon3{
+
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg,#9851FE 0%,#40F87F 100% );
+  border-radius: 50%;
+  font-size: 3.2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;;
+
+}
+
+
+.kutu1{
+
+  width: 275px;
+  height: 400px;
+  background-color: red;
+  background: linear-gradient(135deg,#6AB1EF 0%,#EE35E4 100%);
+  margin-top: 35px;
+
+
+
+}
+
+
+.kutu2{
+
+  width: 275px;
+  height: 440px;
+  background-color: yellow;
+
+  background: linear-gradient(135deg,#F723D4 0%, #FDED7D 100%);
+
+
+
+}
+
+
+.kutu3{
+
+  width: 275px;
+  height: 400px;
+  background-color: blue;
+
+  background: linear-gradient(135deg,#9851FE 0%,#40F87F 100% );
+  margin-top: 35px;
+
+}
+
+.container-fluid{
+
+  display: flex;
+  justify-content: center;
+
+}

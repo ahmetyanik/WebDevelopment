@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="stylesheet" href="css\bootstrap.css">
+  <link rel="stylesheet" href="css\style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+
+  <script src="js\bootstrap.js" charset="utf-8"></script>
+
+</head>
+
+
+
+<body>
+
+
+<script type="text/javascript">
+
+//ELEMENTLER
+var containerElementi=document.createElement("div");
+var bodyElementi= document.body;
+var div1Elementi=document.createElement("div");
+var div2Elementi=document.createElement("div");
+var butonElementi=document.createElement("button");
+var inputElementi=document.createElement("textarea");
+var div1_Alt_Elementi=document.createElement("div");
+var baslikElementi=document.createElement("h3");
+var inputValue=inputElementi.value;
+var count=1;
+
+
+
+
+
+
+//Body Elementi
+
+
+bodyElementi.appendChild(containerElementi);
+bodyElementi.classList.add("d-flex","mt-5");
+
+
+//Container
+
+
+containerElementi.appendChild(div1Elementi);
+containerElementi.appendChild(div2Elementi);
+containerElementi.classList.add("container","d-flex","justify-content-around");
+
+
+//Birinci Div Elementi
+
+
+div1Elementi.style.backgroundColor="#f5f4f4";
+div1Elementi.style.width="30rem";
+div1Elementi.style.height="30rem";
+div1Elementi.classList.add("d-flex","flex-column","align-items-center");
+div1Elementi.appendChild(div1_Alt_Elementi);
+
+
+    //Birinci-Alt-Div Elementi
+    div1_Alt_Elementi.appendChild(butonElementi);
+
+
+
+          //Textarea Elementi
+          div1Elementi.appendChild(inputElementi);
+          inputElementi.classList.add("d-block","m-5");
+          inputElementi.style.width="50vh";
+          inputElementi.style.height="40vh";
+
+
+
+
+
+          //butonElementi
+          butonElementi.classList.add("btn", "btn-secondary");
+          butonElementi.setAttribute("type","button");
+          butonElementi.style.width="10rem";
+          butonElementi.style.height="3rem";
+          butonElementi.innerText="KAYDET";
+          butonElementi.addEventListener("click",yapilacakEkle);
+
+          //Yer Bitme Alerti
+
+
+
+
+//Ikinci Div Elementi
+
+
+div2Elementi.style.backgroundColor="#fcf8e8";
+div2Elementi.style.width="30rem";
+div2Elementi.style.height="30rem";
+div2Elementi.classList.add("d-flex","flex-column","align-items-center");
+
+  //Baslik Element
+  div2Elementi.appendChild(baslikElementi);
+  baslikElementi.innerText="Yapilacaklar Listesi";
+  baslikElementi.classList.add("mb-5");
+
+  //Alert Elementi
+
+
+
+  inputElementi.addEventListener('keypress', function  (e) {
+  if (e.key === 'Enter') {
+    yapilacakEkle(e);
+  }
+  });
+
+
+
+
+function yapilacakEkle(e){
+
+
+  var alertElementi=document.createElement("div");
+  div2Elementi.appendChild(alertElementi);
+  alertElementi.innerText=count + ". "+inputElementi.value;
+  alertElementi.classList.add("alert", "alert-success");
+  inputElementi.value="";
+
+  count++;
+
+  if (count==7) {
+
+    var yerBitmeAlerti=document.createElement("div");
+    div1Elementi.appendChild(yerBitmeAlerti);
+    yerBitmeAlerti.classList.add("alert", "alert-danger");
+    yerBitmeAlerti.innerText="Yapilacaklar listesinde yer kalmadi! Premium üyelik icin IBAN: 1234 5678 9101 1234"
+    butonElementi.disabled=true;
+
+
+
+
+
+
+
+
+  }
+
+  e.preventDefault();
+
+}
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

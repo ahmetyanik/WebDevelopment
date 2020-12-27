@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <!-- bootstrap css -->
+ <link rel="stylesheet" href="./css/bootstrap.min.css">
+ <!-- main css -->
+ <link rel="stylesheet" href="./css/main.css">
+ <!-- google fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
+ <!-- font awesome -->
+ <link rel="stylesheet" href="./css/all.css">
+ <title>OOP Course Form Project</title>
+ <style>
+ </style>
+</head>
+
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="col-11 mx-auto text-center my-5">
+    <form class="my-5" id="customer-form" onsubmit="return false">
+     <h3 class="text-capitalize">get a free course</h3>
+     <div class="feedback text-center  text-capitalize">
+      calculating.....
+     </div>
+     <!-- single input -->
+     <div class="input-group my-3">
+      <div class="input-group-prepend">
+       <span class="input-group-text"><i class="fas fa-user"></i></span>
+      </div>
+      <input type="text" class="form-control text-capitalize name" id="name" placeholder="customer name">
+     </div>
+     <!-- end of single input -->
+     <!-- single input -->
+     <div class="input-group my-3">
+      <div class="input-group-prepend">
+       <span class="input-group-text"><i class="fas fa-book"></i></span>
+      </div>
+      <input type="text" class="form-control text-capitalize course" placeholder="course" id="course">
+     </div>
+     <!-- end of single input -->
+     <!-- single input -->
+     <div class="input-group my-3">
+      <div class="input-group-prepend">
+       <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+      </div>
+      <input type="text" class="form-control text-capitalize author" placeholder="author" id="author">
+     </div>
+     <!-- end of single input -->
+     <button onclick="kayitYap()" type="submit" class="btn btn-block submitBtn text-uppercase mt-4">submit</button>
+    </form>
+
+    <div class="loading">
+     <img src="./img/loading.gif" alt="">
+    </div>
+    <div class="row customer-list">
+
+     <!-- single customer -->
+     <div class="col mx-auto my-3 d-flex justify-content-center flex-wrap ">
+
+      <!-- single customer -->
+
+
+
+     </div>
+
+    </div>
+   </div>
+  </div>
+ </div>
+
+
+
+
+ <!-- jquery -->
+ <script src="./js/jquery-3.3.1.min.js"></script>
+ <!-- bootstrap js -->
+ <script src="./js/bootstrap.bundle.min.js"></script>
+ <!-- script js -->
+ <script src="./js/app.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+var input1=document.querySelectorAll("input")[0];
+var input2=document.querySelectorAll("input")[1];
+var input3=document.querySelectorAll("input")[2];
+
+
+
+
+
+
+var silmeIkonuDivi;
+var silmeIkonu;
+var silmeLinki;
+var silmeForm;
+
+
+
+
+
+function kayitYap(){
+
+  //input Elementleri
+
+  var rastgeleSayi= Math.floor((Math.random())*5+1);
+  var resimKaynak = "./img/cust-"+(rastgeleSayi)+".jpg";
+  silmeIkonuDivi = document.createElement("div");
+  silmeIkonu= document.createElement("i");
+  silmeLinki=document.createElement("a");
+  silmeForm=document.createElement("form");
+
+
+  var birinciDiv=document.createElement("div");
+
+  var ikinciDiv=document.createElement("div");
+
+  var resim=document.createElement("img");
+
+  var h6birinci=document.createElement("h6");
+
+
+
+  var h6ikinci=document.createElement("h6");
+
+  var h6ucuncu=document.createElement("h6");
+
+  var span1=document.createElement("span");
+
+  var span2=document.createElement("span");
+
+  var span3=document.createElement("span");
+
+  var span4=document.createElement("span");
+
+  var span5=document.createElement("span");
+
+  var span6=document.createElement("span");
+
+  var kapsayici=document.querySelectorAll(".col.mx-auto.my-3.d-flex.justify-content-center.flex-wrap")[0];
+
+
+
+  kapsayici.appendChild(birinciDiv);
+
+  birinciDiv.appendChild(resim);
+
+  birinciDiv.appendChild(ikinciDiv);
+
+  ikinciDiv.appendChild(h6birinci);
+
+  ikinciDiv.appendChild(h6ikinci);
+
+  ikinciDiv.appendChild(h6ucuncu);
+
+  h6birinci.appendChild(span1);
+
+  h6birinci.appendChild(span2);
+
+  h6ikinci.appendChild(span3);
+
+  h6ikinci.appendChild(span4);
+
+  h6ucuncu.appendChild(span5);
+
+  h6ucuncu.appendChild(span6);
+
+  silmeLinki.appendChild(silmeIkonu)
+
+  silmeIkonuDivi.appendChild(silmeLinki);
+
+  birinciDiv.appendChild(silmeForm);
+
+  silmeForm.appendChild(silmeIkonuDivi);
+
+
+
+
+
+  birinciDiv.classList.add("card", "text-left", "p-2", "m-1");
+
+  resim.classList.add("card-img-top");
+
+  resim.setAttribute("src",resimKaynak);
+
+  resim.setAttribute("style","width:15rem");
+
+  ikinciDiv.classList.add("card-body");
+
+  h6birinci.classList.add("text-capitalize");
+
+  span1.classList.add("badge","badge-warning","mr-2");
+
+  span2.setAttribute("id","customer-name");
+
+  h6ikinci.classList.add("text-capitalize", "my-3");
+
+  span3.classList.add("badge", "badge-success", "mr-2");
+
+  span4.setAttribute("id","customer-course");
+
+  h6ucuncu.classList.add("text-capitalize");
+
+  span5.classList.add("badge", "badge-danger", "mr-2");
+
+  silmeIkonu.classList.add("far", "fa-trash-alt");
+
+  silmeLinki.setAttribute("href","");
+
+  silmeLinki.setAttribute("onclick","silmeLinkiFonksiyonu()");
+
+  silmeForm.setAttribute("onsubmit","return false");
+
+
+
+
+
+  span6.setAttribute("id","course-author");
+  span1.innerText="Name :";
+  span3.innerText="Course :";
+  span5.innerText="Author :";
+
+
+  // inputlardan alinan degerleri kartlara göndermek
+  span2.innerText=input1.value;
+  span4.innerText=input2.value;
+  span6.innerText=input3.value;
+
+
+
+  function silmeLinkiFonksiyonu(){
+
+      birinciDiv.addEventListener("click",birinciDiv.remove());
+
+  }
+
+
+
+  
+
+
+
+}
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

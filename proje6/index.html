@@ -109,10 +109,9 @@ var input3=document.querySelectorAll("input")[2];
 
 
 
-var silmeIkonuDivi;
-var silmeIkonu;
-var silmeLinki;
-var silmeForm;
+
+
+
 
 
 
@@ -184,13 +183,9 @@ function kayitYap(){
 
   h6ucuncu.appendChild(span6);
 
-  silmeLinki.appendChild(silmeIkonu)
-
-  silmeIkonuDivi.appendChild(silmeLinki);
-
   birinciDiv.appendChild(silmeForm);
 
-  silmeForm.appendChild(silmeIkonuDivi);
+
 
 
 
@@ -222,13 +217,7 @@ function kayitYap(){
 
   span5.classList.add("badge", "badge-danger", "mr-2");
 
-  silmeIkonu.classList.add("far", "fa-trash-alt");
 
-  silmeLinki.setAttribute("href","");
-
-  silmeLinki.setAttribute("onclick","silmeLinkiFonksiyonu()");
-
-  silmeForm.setAttribute("onsubmit","return false");
 
 
 
@@ -246,16 +235,14 @@ function kayitYap(){
   span6.innerText=input3.value;
 
 
-
-  function silmeLinkiFonksiyonu(){
-
-      birinciDiv.addEventListener("click",birinciDiv.remove());
-
-  }
+input1.value="";
+input2.value="";
+input3.value="";
 
 
 
-  
+
+
 
 
 

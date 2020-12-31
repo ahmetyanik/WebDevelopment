@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="css\bootstrap.css">
+    <link rel="stylesheet" href="css\style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <script src="js\bootstrap.js" charset="utf-8"></script>
+</head>
+<body>
+    <div class="container bg-dark" style ="margin-top:20px;">
+
+        <div class="card row">
+            <div class="card-header">Todo List</div>
+            <div class="card-body">
+                    <form id = "todo-form" name="form">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input class="form-control" type="text" name="todo" id = "todo" placeholder="Bir Todo Girin">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Todo Ekleyin</button>
+                        <hr>
+
+                    </form>
+                    <hr>
+
+
+             </div>
+
+             <div class="card-body">
+                    <hr>
+                    <h5 class="card-title" id = "tasks-title">Todolar</h5>
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input class="form-control" type="text" name="filter" id = "filter" placeholder="Bir Todo Arayın">
+                            </div>
+                    </div>
+
+                    <hr>
+                    <ul class="list-group">
+                        <!-- <li class="list-group-item d-flex justify-content-between">
+                            Todo 1
+                            <a href = "#" class ="delete-item">
+                                <i class = "fa fa-remove"></i>
+                            </a>
+
+                        </li>-->
+
+
+                    </ul>
+                    <hr>
+                    <a id = "clear-todos" class="btn btn-dark" href="#">Tüm Taskları Temizleyin</a>
+                </div>
+              </div>
+
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+    //Tüm elementleri sectik
+    var form = document.querySelector("#todo-form");
+    var todoInput = document.querySelector("#todo");
+    var todoList = document.querySelector(".list-group");
+    var firstCardBody = document.querySelectorAll(".card-body")[0];
+    var secondCardBody = document.querySelectorAll(".card-body")[1];
+    var filter=document.querySelector("#filter");
+    var clearButton=document.querySelector("#clear-todos");
+
+
+
+    eventListener();
+
+    function eventListener(){  // Tüm eventListenerlar
+
+      form.addEventListener("submit",addTodo);
+      document.addEventListener("DOMContentLoaded",loadAllTodosToUI());
+      secondCardBody.addEventListener("click",deleteToDo);
+      filter.addEventListener("keyup",filterTodos);
+      clearButton.addEventListener("click",clearAllToDos);
+
+
+
+    }
+
+    function clearAllToDos(e){
+
+        if (confirm("Tümünü silmek istediginize emin misiniz?")) {
+          //Arayüzden todolari kaldir
+
+          while (todoList.firstElementChild != null) {
+
+            todoList.removeChild(todoList.firstElementChild);
+          }
+
+          localStorage.removeItem("todos");
+
+        }
+
+
+    }
+
+    function filterTodos(e){
+
+      const filterValue=e.target.value.toLowerCase();
+      const listItems = document.querySelectorAll(".list-group-item");
+
+      listItems.forEach(function(listItem) {
+
+        const text = listItem.textContent.toLowerCase();
+
+        if (text.indexOf(filterValue)===-1) {
+          //Bulamadi
+          listItem.setAttribute("style","display : none !important");
+
+
+        }else {
+          listItem.setAttribute("style","display : block");
+        }
+
+      });
+
+
+
+    }
+
+
+    function deleteToDo(e){
+
+      if(e.target.className==="fa fa-remove"){
+        e.target.parentElement.parentElement.remove();
+        deleteToDoFromStorage(e.target.parentElement.parentElement.textContent);
+        showAlert("success","Todo basariyla silindi...")
+      }
+
+    }
+
+    function deleteToDoFromStorage(deletetodo){
+
+      let todos = getTodosFromStorage();
+
+      todos.forEach(function(todo,index) {
+
+        if(todo===deletetodo){
+          todos.splice(index,1); //Arrayden degeri silebiliriz
+
+        }
+
+      });
+
+      localStorage.setItem("todos",JSON.stringify(todos));
+
+
+
+    }
+
+    function loadAllTodosToUI(){
+
+      let todos = getTodosFromStorage();
+
+      todos.forEach(function(todo){
+          addTodoToUI(todo);
+
+    })
+
+  }
+
+
+
+    function addTodo(e){
+      var newTodo = todoInput.value.trim();
+
+      if (newTodo=="") {
+
+        showAlert("danger","Lütfen bir todo girin...")
+
+      }else {
+        addTodoToUI(newTodo);
+        addTodoToStorage(newTodo);
+        showAlert("success","Todo basariyla eklendi...")
+      }
+
+
+      e.preventDefault();
+    }
+
+    function getTodosFromStorage(){ //Storage'dan todolari alma
+
+      let todos;
+
+      if (localStorage.getItem("todos")===null) {
+
+        todos = [];
+
+      }else {
+        todos=JSON.parse(localStorage.getItem("todos"));
+      }
+      return todos;
+
+    }
+
+
+    function addTodoToStorage(newTodo){
+
+        let todos = getTodosFromStorage();
+
+        todos.push(newTodo);
+
+        localStorage.setItem("todos",JSON.stringify(todos));
+
+
+    }
+
+
+    function showAlert(type,message) {
+
+      var alert = document.createElement("div");
+
+      alert.className = `alert alert-${type}`;
+
+      alert.textContent=message;
+
+      firstCardBody.appendChild(alert);
+
+      //Set timeout metodu
+
+      setTimeout(function(){
+        alert.remove();
+      },2000);
+
+    }
+
+
+    function addTodoToUI(newTodo){  //String degerini list item olarak UI'ya ekleyecek
+
+      var listItem = document.createElement("li");
+      //Link Olusturma
+      var link = document.createElement("a");
+      link.href="#";
+      link.className="delete-item";
+      link.innerHTML='<i class = "fa fa-remove"></i>';
+
+      listItem.className="list-group-item d-flex justify-content-between";
+
+      //Text Node Ekleme
+
+      listItem.appendChild(document.createTextNode(newTodo));
+      listItem.appendChild(link);
+
+      //todoList'e listItem'i Ekleme
+      todoList.appendChild(listItem);
+      todoInput.value="";
+
+
+
+      console.log(listItem);
+
+
+    }
+
+
+
+    </script>
+
+</body>
+</html>

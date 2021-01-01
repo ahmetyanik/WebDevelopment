@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="css\bootstrap.css">
+    <link rel="stylesheet" href="css\style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <script src="js\bootstrap.js" charset="utf-8"></script>
+</head>
+<body>
+
+
+
+
+    <script type="text/javascript">
+
+
+var element1 = document.createElement("div");
+var element2  = document.createElement("button");
+var butonYazi = document.createTextNode("Buton");
+var baslik = document.createElement("h3");
+var input = document.createElement("input");
+baslik.innerText="Baslik";
+
+document.body.appendChild(baslik);
+document.body.appendChild(input);
+baslik.className="m-5";
+input.className="ml-5";
+
+element2.className="btn btn-success m-2";
+element2.style.width="10rem";
+element2.style.height="5rem";
+element2.appendChild(butonYazi);
+element2.setAttribute("submit","");
+element2.setAttribute("onclick","");
+
+
+element1.appendChild(element2);
+
+element1.className="m-5";
+
+element1.style=("backgroundcolor:red");
+
+document.body.appendChild(element1);
+element1.style=("width:20rem");
+
+element1.style=("height:20rem");
+
+element1.style.backgroundColor="20rem";
+
+element1.style.width="20rem";
+
+element1.style.height="20rem";
+element1.style.backgroundColor="red";
+
+var carpi = document.createElement("i");
+carpi.className="fas fa-times";
+element1.appendChild(carpi);
+
+
+// carpi.addEventListener("click",function(e){
+//
+//
+//   console.log(e.target.tagName);
+//
+//   document.body.remove();
+//
+// });
+
+
+
+
+// document.body.addEventListener("keydown",run);
+//
+// function run(e){
+//
+//   if (e.key==="ArrowRight") {
+//     alert("Ahmet");
+//
+//   }else {
+//     e.target.remove();
+//   }
+//   console.log(e.key);
+//   //console.log("ahmet");
+//
+//   console.log(e.target);
+//
+// }
+
+// input.addEventListener("keyup",degistir);
+//
+// function degistir(e){
+//
+//   if (baslik=="") {
+//
+//     baslik.innerText="Baslik";
+//
+//   }else{
+//
+//     baslik.textContent=e.target.value;
+//   }
+//
+//
+//
+//
+//
+//   e.preventDefault();
+// }
+
+// document.addEventListener("DOMContentLoaded",load);
+//
+// function load(e){
+//
+//   console.log("Sayfa Yüklendi");
+//
+// }
+
+
+// input.addEventListener("focus",run);
+//
+// function run(e){
+//
+//   input.style.border="solid 6px green";
+//
+//   console.log(e.type);
+// }
+//
+// input.addEventListener("blur",run);
+//
+// function run(e){
+//
+//   input.style.border="solid 6px red";
+//
+//   console.log(e.type);
+// }
+
+
+// input.addEventListener("select",run);
+//
+// function run(e){
+//
+//   console.log(e.type);
+//
+//   e.preventDefault();
+//
+// }
+
+// document.body.addEventListener("click",function(){
+//
+//   console.log("body eventi");
+// });
+//
+// element1.addEventListener("click",function(){
+//
+//   console.log("kirmizi bölge eventi");
+// })
+//
+//
+// element2.addEventListener("click",function(){
+//
+//   console.log("Buton eventi");
+// })
+//
+// carpi.addEventListener("click",function(){
+//
+//   console.log("carpi eventi");
+// })
+
+
+element1.addEventListener("click",run);
+
+
+function run(e){
+
+if (e.target.className==="fas fa-times") {
+  console.log("Silme islemi");
+}
+
+if (e.target.className==="btn btn-success m-2") {
+    console.log("Input");
+}
+
+
+
+
+  e.preventDefault();
+}
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

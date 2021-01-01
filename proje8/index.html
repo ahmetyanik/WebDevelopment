@@ -19,7 +19,7 @@
     <script src="js\bootstrap.js" charset="utf-8"></script>
 </head>
 <body>
-    <div class="container bg-dark" style ="margin-top:20px;">
+    <div class="container " style ="margin-top:20px;">
 
         <div class="card row">
             <div class="card-header">Todo List</div>
@@ -27,11 +27,22 @@
                     <form id = "todo-form" name="form">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input class="form-control" type="text" name="todo" id = "todo" placeholder="Bir Todo Girin">
+                                <input class="form-control" type="text" name="todo" id = "input1" placeholder="">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input class="form-control" type="text" name="todo" id = "input2" placeholder="">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input class="form-control" type="text" name="todo" id = "input3" placeholder="">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger">Todo Ekleyin</button>
                         <hr>
+                        <button type="button" class="btn btn-danger" id="add">Ekle</button>
+                        <button type="button" class="btn btn-danger" id="delete">Sil</button>
+                        <button type="button" class="btn btn-danger" id="clear">Hepsini Sil</button>
 
                     </form>
                     <hr>
@@ -74,206 +85,88 @@
 
     <script type="text/javascript">
 
+  var add= document.querySelector("#add");
+  var del=document.querySelector("#delete");
+  var clear=document.querySelector("#clear");
 
-    //Tüm elementleri sectik
-    var form = document.querySelector("#todo-form");
-    var todoInput = document.querySelector("#todo");
-    var todoList = document.querySelector(".list-group");
-    var firstCardBody = document.querySelectorAll(".card-body")[0];
-    var secondCardBody = document.querySelectorAll(".card-body")[1];
-    var filter=document.querySelector("#filter");
-    var clearButton=document.querySelector("#clear-todos");
+  var input1=document.getElementById("input1");
+  var input2=document.getElementById("input2");
+  var input3=document.getElementById("input3");
 
+  var form=document.getElementById("todo-form");
 
-
-    eventListener();
-
-    function eventListener(){  // Tüm eventListenerlar
-
-      form.addEventListener("submit",addTodo);
-      document.addEventListener("DOMContentLoaded",loadAllTodosToUI());
-      secondCardBody.addEventListener("click",deleteToDo);
-      filter.addEventListener("keyup",filterTodos);
-      clearButton.addEventListener("click",clearAllToDos);
+  // add.addEventListener("click",addItem);
+  // del.addEventListener("click",delItem);
+  // clear.addEventListener("click",clearItems);
 
 
 
-    }
+  form.addEventListener("submit",todoEkle);
 
-    function clearAllToDos(e){
+  function todoEkle(e){
 
-        if (confirm("Tümünü silmek istediginize emin misiniz?")) {
-          //Arayüzden todolari kaldir
+      var value = input1.value;
 
-          while (todoList.firstElementChild != null) {
+      var todolar;
 
-            todoList.removeChild(todoList.firstElementChild);
-          }
-
-          localStorage.removeItem("todos");
-
-        }
-
-
-    }
-
-    function filterTodos(e){
-
-      const filterValue=e.target.value.toLowerCase();
-      const listItems = document.querySelectorAll(".list-group-item");
-
-      listItems.forEach(function(listItem) {
-
-        const text = listItem.textContent.toLowerCase();
-
-        if (text.indexOf(filterValue)===-1) {
-          //Bulamadi
-          listItem.setAttribute("style","display : none !important");
-
-
-        }else {
-          listItem.setAttribute("style","display : block");
-        }
-
-      });
-
-
-
-    }
-
-
-    function deleteToDo(e){
-
-      if(e.target.className==="fa fa-remove"){
-        e.target.parentElement.parentElement.remove();
-        deleteToDoFromStorage(e.target.parentElement.parentElement.textContent);
-        showAlert("success","Todo basariyla silindi...")
+      if (localStorage.getItem("todolar")===null) {
+        todolar=[];
       }
 
-    }
+      else {
+          todolar= JSON.parse(localStorage.getItem("todolar"));
+      }
 
-    function deleteToDoFromStorage(deletetodo){
+      todolar.push(value);
 
-      let todos = getTodosFromStorage();
+      localStorage.setItem("todolar",JSON.stringify(todolar));
 
-      todos.forEach(function(todo,index) {
-
-        if(todo===deletetodo){
-          todos.splice(index,1); //Arrayden degeri silebiliriz
-
-        }
-
-      });
-
-      localStorage.setItem("todos",JSON.stringify(todos));
-
-
-
-    }
-
-    function loadAllTodosToUI(){
-
-      let todos = getTodosFromStorage();
-
-      todos.forEach(function(todo){
-          addTodoToUI(todo);
-
-    })
-
+    e.preventDefault();
   }
 
 
-
-    function addTodo(e){
-      var newTodo = todoInput.value.trim();
-
-      if (newTodo=="") {
-
-        showAlert("danger","Lütfen bir todo girin...")
-
-      }else {
-        addTodoToUI(newTodo);
-        addTodoToStorage(newTodo);
-        showAlert("success","Todo basariyla eklendi...")
-      }
-
-
-      e.preventDefault();
-    }
-
-    function getTodosFromStorage(){ //Storage'dan todolari alma
-
-      let todos;
-
-      if (localStorage.getItem("todos")===null) {
-
-        todos = [];
-
-      }else {
-        todos=JSON.parse(localStorage.getItem("todos"));
-      }
-      return todos;
-
-    }
-
-
-    function addTodoToStorage(newTodo){
-
-        let todos = getTodosFromStorage();
-
-        todos.push(newTodo);
-
-        localStorage.setItem("todos",JSON.stringify(todos));
-
-
-    }
-
-
-    function showAlert(type,message) {
-
-      var alert = document.createElement("div");
-
-      alert.className = `alert alert-${type}`;
-
-      alert.textContent=message;
-
-      firstCardBody.appendChild(alert);
-
-      //Set timeout metodu
-
-      setTimeout(function(){
-        alert.remove();
-      },2000);
-
-    }
-
-
-    function addTodoToUI(newTodo){  //String degerini list item olarak UI'ya ekleyecek
-
-      var listItem = document.createElement("li");
-      //Link Olusturma
-      var link = document.createElement("a");
-      link.href="#";
-      link.className="delete-item";
-      link.innerHTML='<i class = "fa fa-remove"></i>';
-
-      listItem.className="list-group-item d-flex justify-content-between";
-
-      //Text Node Ekleme
-
-      listItem.appendChild(document.createTextNode(newTodo));
-      listItem.appendChild(link);
-
-      //todoList'e listItem'i Ekleme
-      todoList.appendChild(listItem);
-      todoInput.value="";
+  // var todolar=["todo1","todo2","todo3"];
+  // //localStorage.setItem("todolar", JSON.stringify(todolar));
+  //
+  // var value = JSON.parse(localStorage.getItem("todolar"));
+  //
+  // console.log(value);
+  //
+  //
+  //
+  // function addItem(e){
+  //
+  //
+  // }
+  //
+  //
+  //
+  // function delItem(e){
+  //
+  //       localStorage.removeItem(input3.value);
+  // }
+  //
+  //
+  // function clearItems(e){
+  //
+  //       localStorage.clear();
+  // }
 
 
 
-      console.log(listItem);
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

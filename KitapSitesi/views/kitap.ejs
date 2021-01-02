@@ -2,12 +2,70 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title><%= isim %></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   </head>
   <body>
+    <%-  include("header")   -%>
+    <div class="container">
+      <div class="row bg-light p-2">
+        <div class="col-3">
+          <img src="<%= resim %>" alt="">
+        </div>
+        <div class="col-9">
+          <h1><%= isim %></h1>
+          <div class="row">
+            <div class="col-8">
+              <p><%= yazar %> | <%= yayinevi %></p>
+              <div class="aciklama">
+                <%= aciklama %>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="bg-white pt-3 pb-3 shadow-sm">
+                <div class="bg-info rounded-pill m-3 pt-1 pb-1 pl-3 pr-3 text-white">
+                  <span style="font-size:1.7rem;"> Fiyatı <%= fiyat %></span> ₺
+                </div>
+                <hr>
+                <div class="kargo-bolumu d-flex align-items-center pl-4">
+                  <div class="d-inline-block">
+                    <i class="fas fa-truck-moving"></i>
+                  </div>
+                  <div class="d-inline-block pl-2">
+                    <b class="text-danger">24 Saatte kargoda</b><br />
+                    <b class="text-success">Stokta 100 kitap var.</b>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <button type="button" class="w-100 btn btn-warning">Sepete Ekle</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="diger-kitaplar">
+        <div class="row">
 
-    <h1><%= isim %> </h1>
-    <p>Fiyat : <%= fiyat %> </p>
-
+          <% for(var i = 0 ; i < kitaplar.length ; i++){ %>
+    <div class="col-2">
+      <a href="/kitap/<%= kitaplar[i].kitapismi %>/<%= kitaplar[i].index %>">
+        <div class="card">
+          <img src="<%= kitaplar[i].resimlinki %>" class="card-img-top">
+          <div class="card-body">
+            <p class="card-text"><%= kitaplar[i].kitapismi  %></p>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% } %>
+        </div>
+      </div>
+    </div>
+    <%- include("footer") -%>
   </body>
 </html>

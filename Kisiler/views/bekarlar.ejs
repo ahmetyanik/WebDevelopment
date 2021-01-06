@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <%- include("header")-%>
+
+    <div class="container p-3">
+      <h2 class="p-3">Bekarlar</h2>
+      <div class="d-flex flex-wrap">
+        <% for(var i = 0 ; i < kisi.length ; i++ ){    %>
+        <%  if (kisi[i].medeniDurum==="Bekar") {  %>
+
+            <div class="col-4 pb-4 text-dark">
+              <a href="/kisi/<%= kisi[i].isim %>/<%= kisi[i].index %>">
+                <div class="card">
+                  <img height="" src="<%= kisi[i].fotograf %>" class="card-img-top">
+                  <div class="card-body p-2">
+                    <p class="card-text text-center ">
+                      <span style="text-decoration:underline"><%= kisi[i].isim %></span><br />
+                      <%= kisi[i].soyIsim  %> Bekar
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+        <% }  %>
+
+        <% }  %>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>

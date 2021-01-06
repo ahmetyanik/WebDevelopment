@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+
+
+  </head>
+  <body >
+
+      <%- include("header") %>
+
+    <div class="container">
+
+      <% for(var i=0;i<kisi.length;i++) { %>
+
+        <div class="row">
+          <div class="col-3 ">
+            <a href="/kisi/<%=kisi[i].isim%>/<%=kisi[i].index%>"><img style="width: 20rem" src="<%=kisi[i].fotograf%>" alt=""></a>
+          </div>
+
+          <div class="col-9 pl-5">
+              <h6 class="pl-5">Isim: <%=kisi[i].isim %> <%=kisi[i].soyisim %> </h6>
+              <h6 class="pl-5">Medeni Durum: <%=kisi[i].medeniDurum %> </h6>
+              <h6 class="pl-5">Dogum Yeri: <%=kisi[i].dogumYeri %> </h6>
+
+          </div>
+        </div>
+
+        <br>
+
+
+      <%}%>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

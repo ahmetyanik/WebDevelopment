@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Anasayfa</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+  </head>
+  <body style="background-color: #cfdac8">
+    <%- include("header") -%>
+    <div class="container  m-5">
+
+      <div class="row">
+        <div class="col-3">
+          <img class="rounded shadow-lg" style="width:35vh" src="<%= kisi[0].resim %>" alt="">
+        </div>
+
+        <div class="col-6">
+          <h1><%=kisi[0].isim%></h1>
+          <hr>
+          <a class="text-muted text-decoration-none" href="/hakkimda"><h3>Hakkimda</h3></a>
+          <br>
+          <a class="text-muted text-decoration-none" href="/iletisim"><h3>Iletisim</h3></a>
+
+
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+  </body>
+</html>

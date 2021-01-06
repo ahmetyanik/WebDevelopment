@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+  </head>
+
+  <body style="background-color: #cfdac8">
+
+<%- include("header") -%>
+
+    <div class="p-3">
+
+      <div class="row">
+
+        <div class="col-3">
+            <img style="width:50vh" src="<%=kisi[0].resimHakkimda%>" alt="">
+        </div>
+
+        <div class="col-9">
+
+          <h1>Hakkimda</h1>
+
+          <p>Ahmet Yanik OBE DCM MM MP is the leader of the Birmingham criminal gang, the Yanky Blinders and the patriarch of the Yanky Family.
+
+        Ahmet served in World War I with the rank of Sergeant Major and was decorated for bravery. His experiences in World War I left him disillusioned and beset with ongoing nightmares, and he becomes determined to move his family up in the world.
+
+        After the vendetta with the New York Mafia, and during the year of the Wall Street Crash, Ahmet Yanik became a Member of Parliament as a socialist politician while lending the chair of the illegal business to his older brother, Arthur Yanik.</p>
+
+
+        <br>
+        <p>Yas: <%= kisi[0].yas %> </p>
+        <p>Dogum Yeri: <%=kisi[0].dogumYeri%></p>
+        <p>Diller: <%= kisi[0].diller %> </p>
+        <p>Medeni Durum: <%=kisi[0].medeniDurum%></p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </body>
+</html>

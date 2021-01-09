@@ -119,9 +119,14 @@ app.get("/arama" , function(req, res){
       res.render("arama" , { kitaplar : bulunanKitaplar , kategoriler : bulunanKategoriler });
     });
 });
+
+
 app.get("/kitapekle", function(req, res){
     res.sendFile(__dirname + "/views/kitapekle.html");
 });
+
+
+
 app.post("/veritabanina-ekle", upload.single('dosya'), function(req, res){
 
     var resimlinki="";
@@ -140,7 +145,7 @@ app.post("/veritabanina-ekle", upload.single('dosya'), function(req, res){
     //kitapismi, fiyat, resimlinki, yayinevi, aciklama, yazar, kategori
     var sql = "INSERT INTO bilgiler.kitaplar (kitapismi, fiyat, resimlinki, yayinevi, aciklama, yazar, kategori) VALUES('"+kitapismi+"','"+ fiyat+"', '"+resimlinki+"' ,'"+ yayinevi + "','" + aciklama +"','"+ yazar +"','"+ kategori+"')";
     connection.query(sql, function(err, results, fields){
-      res.redirect("/kitapekle");
+      res.redirect("/");
     });
 });
 let port = process.env.PORT;

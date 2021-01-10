@@ -11,6 +11,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 const mysql = require("mysql");
+
+
 const bodyParser = require("body-parser");
 const express = require("express");
 const app     = express();
@@ -18,6 +20,8 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 app.set("view engine" , "ejs");
 app.use(express.static(__dirname + "/dosyalar"));
 app.use(bodyParser.json());
+
+
 var connection = mysql.createConnection({
   multipleStatements : true,
   host     : 'localhost',
@@ -29,8 +33,12 @@ connection.connect(function(err){
   if(err) throw err;
   console.log("MYSQL'e bağlandı..");
 });
+
+
+
 var kategoriler = [] ;
 // ya bir kere alsak, bir daha bu fonksyion çağrıldığında, direk daha önceki aldığımızı kullansak ?
+
 function kategorileriAl(callback){
   if(kategoriler.length > 0 ){
     console.log("var olan dönderildi.");
@@ -42,7 +50,25 @@ function kategorileriAl(callback){
       return callback(kategoriler);
     });
   }
-}
+};
+
+// app.get("/", function(){
+//
+//   connection.query("SELECT * FROM kitaplar", function(err, results, fields){
+//
+//     if(err) throw err;
+//
+//
+//     var veriTabaniKitaplar=results;
+//     res.render("anasayfa",{kitaplar:veriTabaniKitaplar});
+//
+//   });
+//
+//
+// });
+
+
+
 app.get("/" , function(req , res){
     connection.query("SELECT * from kitaplar  ;  SELECT * from kategoriler" , function(err, results, fields){
       if(err) throw err;
@@ -57,11 +83,18 @@ app.get("/" , function(req , res){
                 );
     });
 });
+
+
+
+
 // kitapsitesi.com/kitap/TehlikeliOyunlar/78
 app.get("/kitap/:isim/:id", function(req, res){
     var idDegeri = req.params.id; // -> 78
     var sql = "SELECT * from kitaplar WHERE id = " + idDegeri ;
+
+
     kategorileriAl(function(kategoriler){
+
       connection.query(sql, function(err, results, fields){
           if(err) throw err;
           console.log(results);
@@ -97,15 +130,23 @@ ON bilgiler.kategoriler.kategori_link = 'bilim'
 WHERE bilgiler.kategoriler.kategori_ismi = bilgiler.kitaplar.kategori
 */
 app.get("/kategori/:kategorilink", function(req, res){
+
     kategorileriAl(function(gelenKategoriler){
       // kategoriler geldi...
         var kategoriLink = req.params.kategorilink; // edebiyat
+
         var sql = "SELECT bilgiler.kitaplar.* FROM bilgiler.kitaplar LEFT JOIN bilgiler.kategoriler ON bilgiler.kategoriler.kategori_link = '"+ kategoriLink +"' WHERE bilgiler.kategoriler.kategori_ismi = bilgiler.kitaplar.kategori"
+
+
         connection.query(sql , function(err , results, fields){
             res.render("kategori", {kitaplar : results , kategoriler : gelenKategoriler} );
         });
     });
 });
+
+
+
+
 app.get("/arama" , function(req, res){
     // veritabanına bağlanacağız, orada bu kelimeye ait
     // kitap varsa, onları kullanıcıya göstereceğiz.

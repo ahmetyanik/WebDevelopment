@@ -11,8 +11,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 const mysql = require("mysql");
-
-
 const bodyParser = require("body-parser");
 const express = require("express");
 const app     = express();
@@ -29,6 +27,8 @@ var connection = mysql.createConnection({
   password : '12344321',
   database : 'bilgiler'
 });
+
+
 connection.connect(function(err){
   if(err) throw err;
   console.log("MYSQL'e bağlandı..");

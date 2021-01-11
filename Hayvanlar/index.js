@@ -23,7 +23,7 @@ connection.connect(function(err){
 
 app.get("/", function(req,res){
 
-  connection.query("SELECT * from hayvanlar", function(err, results, fields){
+  connection.query("SELECT * from hayvanlar; ", function(err, results, fields){
 
     var veriTabaniHayvanlar = results;
 
@@ -34,6 +34,31 @@ app.get("/", function(req,res){
             );
 });
 });
+
+
+
+
+app.get("/turler/:hayvanturu",function(req,res){
+
+  var hayvanTuru = req.params.hayvanturu;
+  var sql = "SELECT * from hayvanlar.hayvanlar ";
+
+  connection.query(sql, function(err, results, fields){
+
+  var bulunanTurler = results;
+
+//console.log(hayvanTuru);
+console.log(bulunanTurler);
+console.log(bulunanTurler);
+
+
+  res.render("turler", {turler:bulunanTurler}
+            );
+
+
+});
+});
+
 
 
 

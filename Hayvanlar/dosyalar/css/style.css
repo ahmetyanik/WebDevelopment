@@ -1,0 +1,12 @@
+.quick-links li a{
+  color: #fdfdfd !important;
+  text-decoration: none;
+}
+.d-flex div a {
+  color: var(--dark);
+  text-decoration: none;
+}
+.d-flex div a div.card:hover{
+  background-color: #e9e9e9;
+  color : black !important;
+}

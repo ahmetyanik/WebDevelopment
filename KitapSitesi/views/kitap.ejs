@@ -8,13 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.js" charset="utf-8"></script>
-
   </head>
   <body class="bg-light">
-
-  <%- include("header") -%>
-
-
+    <%-  include("header")   -%>
     <div class="container bg-light ">
       <nav aria-label="breadcrumb" class="pt-3">
         <ol class="breadcrumb bg-transparent">
@@ -23,7 +19,6 @@
           <li class="breadcrumb-item active" aria-current="page"><%= isim %></li>
         </ol>
       </nav>
-
       <div class="row p-2 border-top border-bottom">
         <div class="col-3">
           <img width="100%" src="<%= resim %>" alt="">
@@ -39,13 +34,10 @@
             </div>
             <div class="col-4">
               <div class="bg-white pt-3 pb-3 shadow-sm">
-
                 <div class="bg-info rounded-pill m-3 pt-1 pb-1 pl-3 pr-3 text-white">
                   <span style="font-size:1.7rem;"> Fiyatı <%= fiyat %></span> ₺
                 </div>
-
                 <hr>
-
                 <div class="kargo-bolumu d-flex align-items-center pl-4">
                   <div class="d-inline-block">
                     <i class="fas fa-truck-moving"></i>
@@ -55,31 +47,24 @@
                     <b class="text-success">Stokta 100 kitap var.</b>
                   </div>
                 </div>
-
                 <div class="p-4">
                   <button type="button" class="w-100 btn btn-warning">Sepete Ekle</button>
                 </div>
-
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="container mt-3">
       <div class="diger-kitaplar">
         <h5 class="text-muted pl-3">Önerilen Kitaplar</h5>
-
         <div class="d-flex flex-wrap pt-3">
-
         <%
         var sayi  = kitaplar.length > 5 ? 6 : kitaplar.length;
         for(var i = 0 ; i < sayi ; i++){ %>
-
           <div class="col-2 pb-4 text-dark">
-            <a href="/kitap/<%= kitaplar[i].kitapismi %>/<%= kitaplar[i].index %>">
+            <a href="/kitap/<%= kitaplar[i].kitapismi %>/<%= kitaplar[i].id %>">
               <div class="card">
                 <img height="250" src="<%= kitaplar[i].resimlinki %>" class="card-img-top">
                 <div class="card-body p-2">
@@ -91,22 +76,10 @@
               </div>
             </a>
           </div>
-
         <% } %>
-
-
-
-
-
-
-
         </div>
-
       </div>
     </div>
-
-
     <%- include("footer") -%>
-
   </body>
 </html>

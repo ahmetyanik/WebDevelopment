@@ -36,28 +36,97 @@ app.get("/", function(req,res){
 });
 
 
+app.get("/hayvan/:id", function(req,res){
 
+  var idDegeri = req.params.id-1;
 
-app.get("/turler/:hayvanturu",function(req,res){
-
-  var hayvanTuru = req.params.hayvanturu;
-  var sql = "SELECT * from hayvanlar.hayvanlar ";
+  var sql= "SELECT * from hayvanlar";
 
   connection.query(sql, function(err, results, fields){
 
-  var bulunanTurler = results;
+    var idHayvan = idDegeri;
+    var hayvanAdi      = results[idDegeri].adi;
+    var hayvanTuru   = results[idDegeri].turu;
+    var hayvanAnavatani      = results[idDegeri].anavatani;
+    var hayvanAciklama   = results[idDegeri].aciklama;
+    var hayvanResim = results[idDegeri].resimlinki;
 
-//console.log(hayvanTuru);
-console.log(bulunanTurler);
-console.log(bulunanTurler);
+
+    console.log(idHayvan);
+
+  res.render("hayvan",{
+                          id:idHayvan,
+                          adi:hayvanAdi,
+                          turu:hayvanTuru,
+                          anavatani:hayvanAnavatani,
+                          aciklama:hayvanAnavatani,
+                          resim:hayvanResim
 
 
-  res.render("turler", {turler:bulunanTurler}
-            );
+
+
+            });
+});
+});
+
+app.get("/arama",function(req,res){
+
+var arananKelime = req.query.hayvan;
+
+var sql = "SELECT * FROM hayvanlar WHERE adi LIKE '%"+arananKelime+ "%';"
+
+connection.query(sql, function(err, results, fields){
+
+var bulunanHayvanlar = results;
+
+console.log(bulunanHayvanlar);
+
+res.render("arama", {
+                      hayvanlar:bulunanHayvanlar
+})
+
+})
+
 
 
 });
-});
+
+
+
+
+// app.get("/turler/:hayvanturu",function(req,res){
+//
+//   var hayvanTuru = req.params.hayvanturu;
+//   var sql = "SELECT * FROM hayvanlar.hayvanlar where hayvanlar.turu="+hayvanTuru;
+//
+//   connection.query(sql, function(err, results, fields){
+//
+//     var turler=results;
+//     var hayvanAdi      = results.adi;
+//     var hayvanTuru   = results.turu;
+//     var hayvanAnavatani      = results.anavatani;
+//     var hayvanAciklama   = results.aciklama;
+//     var hayvanResim = results.resimlinki;
+//
+//
+//
+//   res.render("turler", {
+//                           turler:turler,
+//                           adi:hayvanAdi,
+//                           turu:hayvanTuru,
+//                           anavatani:hayvanAnavatani,
+//                           aciklama:hayvanAciklama,
+//                           resim:hayvanResim
+//
+//
+//
+//
+//                       }
+//             );
+//
+//
+// });
+// });
 
 
 

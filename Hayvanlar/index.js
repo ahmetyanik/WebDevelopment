@@ -1,3 +1,13 @@
+const multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/dosyalar/resimler')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+  }
+});
+var upload = multer({ storage: storage });
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -35,8 +45,29 @@ app.get("/", function(req,res){
 });
 });
 
+app.get("/hayvanekle", function(req, res){
+    res.sendFile(__dirname + "/views/hayvanekle.html");
+});
 
-app.get("/hayvan/:id", function(req,res){
+app.post("/veritabanina-ekle"   ,  upload.single('dosya')  ,  function(req, res){
+    var resimlinki = "";
+    if(req.file){
+      resimlinki = "/resimler/"+req.file.filename;
+    }
+    var hayvanAdi = req.body.hayvanismi;
+    var turu     = req.body.turu;
+    var anavatani     = req.body.anavatani;
+    var aciklama  = req.body.aciklama;
+
+
+    var sql = "INSERT INTO hayvanlar.hayvanlar (adi, turu, anavatani, aciklama,resimlinki) VALUES('"+hayvanAdi+"','"+ turu+"' ,'"+ anavatani + "','" + aciklama +"', '"+resimlinki+"')";
+    connection.query(sql, function(err, results, fields){
+      res.redirect("/hayvanekle");
+    });
+});
+
+
+app.get("/hayvan/:hayvanAdi/:id", function(req,res){
 
   var idDegeri = req.params.id-1;
 
@@ -94,39 +125,39 @@ res.render("arama", {
 
 
 
-// app.get("/turler/:hayvanturu",function(req,res){
-//
-//   var hayvanTuru = req.params.hayvanturu;
-//   var sql = "SELECT * FROM hayvanlar.hayvanlar where hayvanlar.turu="+hayvanTuru;
-//
-//   connection.query(sql, function(err, results, fields){
-//
-//     var turler=results;
-//     var hayvanAdi      = results.adi;
-//     var hayvanTuru   = results.turu;
-//     var hayvanAnavatani      = results.anavatani;
-//     var hayvanAciklama   = results.aciklama;
-//     var hayvanResim = results.resimlinki;
-//
-//
-//
-//   res.render("turler", {
-//                           turler:turler,
-//                           adi:hayvanAdi,
-//                           turu:hayvanTuru,
-//                           anavatani:hayvanAnavatani,
-//                           aciklama:hayvanAciklama,
-//                           resim:hayvanResim
-//
-//
-//
-//
-//                       }
-//             );
-//
-//
-// });
-// });
+app.get("/turler/:hayvanturu",function(req,res){
+
+  var hayvanTuru = req.params.hayvanturu;
+  var sql = "SELECT * FROM hayvanlar.hayvanlar where hayvanlar.turu="+hayvanTuru;
+
+  connection.query(sql, function(err, results, fields){
+
+    var turler=results;
+    var hayvanAdi      = results.adi;
+    var hayvanTuru   = results.turu;
+    var hayvanAnavatani      = results.anavatani;
+    var hayvanAciklama   = results.aciklama;
+    var hayvanResim = results.resimlinki;
+
+
+
+  res.render("turler", {
+                          turler:turler,
+                          adi:hayvanAdi,
+                          turu:hayvanTuru,
+                          anavatani:hayvanAnavatani,
+                          aciklama:hayvanAciklama,
+                          resim:hayvanResim
+
+
+
+
+                      }
+            );
+
+
+});
+});
 
 
 

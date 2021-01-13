@@ -133,11 +133,20 @@ res.render("arama", {
 
 });
 
+var kategoriler=[];
+
 function turleriAl(callback){
 
-  connection.query("SELECT * FROM kategoriler",function(err, results, fields){
-    return callback(results);
-  });
+  if(kategoriler.length>0){
+    callback(kategoriler);
+  }else{
+    connection.query("SELECT * FROM kategoriler",function(err, results, fields){
+      return callback(results);
+    });
+
+  }
+
+
 }
 
 

@@ -36,7 +36,7 @@ function kategorileriAl(callback){
   }else{
     connection.query("SELECT * from kategoriler", function(err, results, fields){
       kategoriler = results;
-      console.log("veri tabaından alındı.");
+      console.log("veri tabanından alındı.");
       return callback(kategoriler);
     });
   }

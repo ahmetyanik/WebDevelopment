@@ -12,18 +12,18 @@
 
 
   </head>
-  <body>
+  <body class="bg-dark">
 
 <%-include("header")-%>
 
-<div class="container d-flex flex-wrap p-5">
+<div class="container d-flex flex-wrap p-5 ">
 
   <%for(var i=0;i<butunHayvanlar.length;i++) {%>
 
 
 
   <div class="card m-2" style="width: 18rem;">
-    <a href="/hayvan/<%=butunHayvanlar[i].ad%>/<%=butunHayvanlar[i].id%>"> <img style="height:10rem" src="<%=butunHayvanlar[i].resimlinki%>" class="card-img-top" alt="..."></a> 
+    <a href="/hayvan/<%=butunHayvanlar[i].ad%>/<%=butunHayvanlar[i].id%>"> <img style="height:10rem" src="<%=butunHayvanlar[i].resimlinki%>" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title"><%=butunHayvanlar[i].ad%></h5>
       <p class="card-text"><%=butunHayvanlar[i].aciklama.substring(0,100)%>...</p>

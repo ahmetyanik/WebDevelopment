@@ -1,3 +1,13 @@
+const multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/dosyalar/resimler')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+  }
+});
+var upload = multer({ storage: storage });
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -64,6 +74,37 @@ app.get("/hayvan/:adi/:id", function(req,res){
 
 
   });
+
+});
+
+
+app.get("/hayvanekle",function(req,res){
+
+
+  res.sendFile(__dirname+"/views/hayvanekle.html")
+});
+
+
+app.post("/veritabanina-ekle",upload.single('dosya'),function(req,res){
+
+  var resimlinki = "";
+  if(req.file){
+    resimlinki = "/resimler/"+req.file.filename;
+  }
+
+  var ad = req.body.hayvanadi;
+  var tur=req.body.hayvanturu;
+  var anavatani = req.body.hayvananavatani;
+  var aciklama=req.body.aciklama;
+  var evcilmi = req.body.hayvanevcilmi;
+  var beslenme=req.body.hayvanbeslenme;
+
+  var sql= "INSERT INTO canlilar.hayvanlar (ad, tur, anavatani,aciklama,evcilmi,beslenme,resimlinki) VALUES ('"+ad+"', '"+tur+"', '"+anavatani+"','"+aciklama+"','"+evcilmi+"','"+beslenme+"','"+resimlinki+"')";
+
+  connection.query(sql, function(err, results, fields){
+    res.redirect("/hayvanekle");
+  });
+
 
 });
 

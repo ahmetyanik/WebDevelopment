@@ -33,14 +33,16 @@ connection.connect(function(err){
 
 app.get("/", function(req,res){
 
-  connection.query("SELECT * from hayvanlar; ", function(err, results, fields){
+  connection.query("SELECT * from hayvanlar; SELECT * from kategoriler ", function(err, results, fields){
 
-    var veriTabaniHayvanlar = results;
+    var veriTabaniHayvanlar = results[0];
+    var veriTabaniKategoriler= results[1];
 
-    console.log(veriTabaniHayvanlar);
+
 
   res.render("anasayfa",{
-                          hayvanlar:veriTabaniHayvanlar}
+                          hayvanlar:veriTabaniHayvanlar,
+                          kategoriler:veriTabaniKategoriler}
             );
 });
 });
@@ -81,22 +83,31 @@ app.get("/hayvan/:hayvanAdi/:id", function(req,res){
     var hayvanAnavatani      = results[idDegeri].anavatani;
     var hayvanAciklama   = results[idDegeri].aciklama;
     var hayvanResim = results[idDegeri].resimlinki;
+    var sql2 = "SELECT * from kategoriler";
+
+    connection.query(sql,function(err,results,fields){
+
+      res.render("hayvan",{
+                              id:idHayvan,
+                              adi:hayvanAdi,
+                              turu:hayvanTuru,
+                              anavatani:hayvanAnavatani,
+                              aciklama:hayvanAnavatani,
+                              resim:hayvanResim,
+                              kategoriler:results
 
 
-    console.log(idHayvan);
 
-  res.render("hayvan",{
-                          id:idHayvan,
-                          adi:hayvanAdi,
-                          turu:hayvanTuru,
-                          anavatani:hayvanAnavatani,
-                          aciklama:hayvanAnavatani,
-                          resim:hayvanResim
+
+                });
+
+
+    })
 
 
 
 
-            });
+
 });
 });
 
@@ -122,38 +133,25 @@ res.render("arama", {
 
 });
 
+function turleriAl(callback){
+
+  connection.query("SELECT * FROM kategoriler",function(err, results, fields){
+    return callback(results);
+  });
+}
 
 
+app.get("/turler/:kategorilink",function(req,res){
 
-app.get("/turler/:hayvanturu",function(req,res){
+  turleriAl(function(gelenKategoriler){
 
-  var hayvanTuru = req.params.hayvanturu;
-  var sql = "SELECT * FROM hayvanlar.hayvanlar where hayvanlar.turu="+hayvanTuru;
+  var kategorilink = req.params.kategorilink;
+  var sql = "SELECT hayvanlar.hayvanlar.* FROM hayvanlar.hayvanlar LEFT JOIN hayvanlar.kategoriler ON hayvanlar.kategoriler.kategorilink= '"+ kategorilink +"' WHERE hayvanlar.kategoriler.kategori_ismi=hayvanlar.hayvanlar.turu";
 
-  connection.query(sql, function(err, results, fields){
+  connection.query(sql , function(err , results, fields){
+      res.render("turler", {hayvanlar : results , kategoriler : gelenKategoriler} );
+  });
 
-    var turler=results;
-    var hayvanAdi      = results.adi;
-    var hayvanTuru   = results.turu;
-    var hayvanAnavatani      = results.anavatani;
-    var hayvanAciklama   = results.aciklama;
-    var hayvanResim = results.resimlinki;
-
-
-
-  res.render("turler", {
-                          turler:turler,
-                          adi:hayvanAdi,
-                          turu:hayvanTuru,
-                          anavatani:hayvanAnavatani,
-                          aciklama:hayvanAciklama,
-                          resim:hayvanResim
-
-
-
-
-                      }
-            );
 
 
 });

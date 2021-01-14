@@ -24,9 +24,13 @@
 </hayvanlar.length;i++)>
 
   <div class="card mt-3 ml-1" style="width: 18rem;">
-    <div class="d-flex justify-content-center">
-    <img style="width:15rem; height:10rem" src="<%= hayvanlar[i].resimlinki %>" class="card-img-top" alt="...">
+
+    <a href="/hayvan/<%=hayvanlar[i].adi%>/<%=hayvanlar[i].id%>">
+      <div class="d-flex justify-content-center">
+      <img style="width:15rem; height:10rem" src="<%= hayvanlar[i].resimlinki %>" class="card-img-top" alt="...">
     </div>
+    </a>
+
 
     <div class="card-body">
       <h5 class="card-title"><%= hayvanlar[i].adi %></h5>

@@ -14,8 +14,26 @@
 
 <div class="container">
 
-  <h1>adi:<%=adi%></h1>
-  <img style="width:40rem" src="<%=resim%>" alt="">
+  <div class="row mt-5 bg-light d-flex">
+
+    <div class="col-4 ">
+      <img class="w-100  " style="width:40rem" src="<%=hayvanlar[id].resimlinki%>" alt="">
+    </div>
+
+    <div class="col-8 ">
+        <h1 class=""><%=hayvanlar[id].adi%></h1>
+        <p><h6 class="d-inline-block">Türü:</h6>  <%=hayvanlar[id].turu%></p>
+        <p><h6 class="d-inline-block">Anavatani:</h6>  <%=hayvanlar[id].anavatani%></p>
+        <p><h6 class="d-inline-block">Aciklama:</h6>  <%=hayvanlar[id].aciklama%></p>
+      
+
+
+    </div>
+
+  </div>
+
+
+
 
 </div>
 

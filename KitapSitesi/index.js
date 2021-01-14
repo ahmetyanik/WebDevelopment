@@ -128,6 +128,8 @@ app.get("/arama" , function(req, res){
 app.get("/kitapekle", function(req, res){
     res.sendFile(__dirname + "/views/kitapekle.html");
 });
+
+
 app.post("/veritabanina-ekle"   ,  upload.single('dosya')  ,  function(req, res){
     var resimlinki = "";
     if(req.file){

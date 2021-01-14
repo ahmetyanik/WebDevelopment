@@ -73,58 +73,43 @@ app.get("/hayvan/:hayvanAdi/:id", function(req,res){
 
   var idDegeri = req.params.id-1;
 
-  var sql= "SELECT * from hayvanlar";
 
-  connection.query(sql, function(err, results, fields){
+  connection.query("SELECT * from hayvanlar; SELECT * from kategoriler ", function(err, results, fields){
 
-    var idHayvan = idDegeri;
-    var hayvanAdi      = results[idDegeri].adi;
-    var hayvanTuru   = results[idDegeri].turu;
-    var hayvanAnavatani      = results[idDegeri].anavatani;
-    var hayvanAciklama   = results[idDegeri].aciklama;
-    var hayvanResim = results[idDegeri].resimlinki;
-    var sql2 = "SELECT * from kategoriler";
+    var veriTabaniHayvanlar = results[0];
+    var veriTabaniKategoriler= results[1];
 
-    connection.query(sql,function(err,results,fields){
-
-      res.render("hayvan",{
-                              id:idHayvan,
-                              adi:hayvanAdi,
-                              turu:hayvanTuru,
-                              anavatani:hayvanAnavatani,
-                              aciklama:hayvanAnavatani,
-                              resim:hayvanResim,
-                              kategoriler:results
+    console.log(veriTabaniHayvanlar);
 
 
 
-
-                });
-
-
-    })
-
-
-
-
+  res.render("hayvan",{
+                          hayvanlar:veriTabaniHayvanlar,
+                          kategoriler:veriTabaniKategoriler,
+                          id:idDegeri}
+            );
+});
 
 });
-});
+
+
 
 app.get("/arama",function(req,res){
 
 var arananKelime = req.query.hayvan;
 
-var sql = "SELECT * FROM hayvanlar WHERE adi LIKE '%"+arananKelime+ "%';"
 
-connection.query(sql, function(err, results, fields){
+connection.query("SELECT * FROM hayvanlar WHERE adi LIKE '%"+arananKelime+ "%';SELECT * from kategoriler ", function(err, results, fields){
 
-var bulunanHayvanlar = results;
+var bulunanHayvanlar = results[0];
+var veriTabaniKategoriler=results[1];
 
 console.log(bulunanHayvanlar);
 
 res.render("arama", {
-                      hayvanlar:bulunanHayvanlar
+                      hayvanlar:bulunanHayvanlar,
+                      kategoriler:veriTabaniKategoriler
+
 })
 
 })

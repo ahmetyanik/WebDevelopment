@@ -61,6 +61,7 @@ app.get("/hayvan/:adi/:id", function(req,res){
     var beslenme= results[idDegeri].beslenme;
     var aciklama= results[idDegeri].aciklama;
 
+
     res.render("hayvan", {  ad:ad,
                             id:id,
                             tur:tur,
@@ -68,7 +69,8 @@ app.get("/hayvan/:adi/:id", function(req,res){
                             resimlinki:resimlinki,
                             evcilmi:evcilmi,
                             beslenme:beslenme,
-                            aciklama:aciklama
+                            aciklama:aciklama,
+                            hayvanlar:results
 
     } );
 
@@ -107,6 +109,24 @@ app.post("/veritabanina-ekle",upload.single('dosya'),function(req,res){
 
 
 });
+
+
+app.get("/arama",function(req,res){
+
+  var kelime=req.query.hayvan;
+
+  var sql="SELECT * FROM canlilar.hayvanlar Where canlilar.hayvanlar.ad LIKE '%" + kelime + "%'";
+
+  connection.query(sql, function(err, results, fields){
+      var bulunanHayvanlar=results;
+      var ad = bulunanHayvanlar[0].ad;
+      console.log(bulunanHayvanlar);
+      res.render("arama",{hayvanlar:bulunanHayvanlar,
+                          ad:ad
+      });
+  });
+
+})
 
 
 

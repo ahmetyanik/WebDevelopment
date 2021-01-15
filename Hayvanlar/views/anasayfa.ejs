@@ -37,9 +37,12 @@
       <li class="list-group-item">Anavatani: <%=hayvanlar[i].anavatani%></li>
       <li class="list-group-item"><%=hayvanlar[i].aciklama%></li>
     </ul>
-    <div class="card-body d-flex justify-content-between">
-      <a href="/" class="card-link">Anasayfa</a>
-      <a href="/turler" class="card-link"><%=hayvanlar[i].turu%> Türleri</a>
+    <div class="card-body d-flex ">
+      <div class=" d-flex justify-content-center">
+        <a href="/" class="card-link ml-3">Anasayfa</a>
+        <a href="/turler/<%=hayvanlar[i].turu%>" class="card-link ml-5"><%=hayvanlar[i].turu%> Türleri</a>
+      </div>
+
     </div>
   </div>
 

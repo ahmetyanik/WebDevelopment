@@ -21,35 +21,30 @@ var yapilacakListesi = new Schema(
 var Gorev = mongoose.model("Gorev",yapilacakListesi);
 
 
-var gorev1 = new Gorev(
-  {
-      gorev : "ToDoList'e hosgeldin",
-      tarih : new Date()
-  }
-);
-
-var gorev2 = new Gorev(
-  {
-      gorev : "+ butonuna tiklayarak veri ekleyebilirsin.",
-      tarih : new Date()
-  }
-);
-
-var gorev3 = new Gorev(
-  {
-      gorev : "<--Görevi silmek icin tiklayin.",
-      tarih : new Date()
-  }
-);
-
-// gorev1.save();
-// gorev2.save();
-// gorev3.save();
-
 app.get("/", function(req, res) {
     Gorev.find({} , function(err, gelenVeriler){
-      console.log(gelenVeriler);
-      res.render("anasayfa");
+       console.log(gelenVeriler);
+      if(gelenVeriler.length < 1){
+        var array = [
+          {
+            gorev: "ToDoList'e hoşgeldin",
+            tarih: new Date()
+          },
+          {
+            gorev : "+ butonuna tıklayarak veri ekleyebilirsin.",
+            tarih : new Date()
+          },
+          {
+            gorev : "<-- Görevi silmek için tıklayın.",
+            tarih : new Date()
+          }
+        ];
+        Gorev.insertMany(array, function(err, results){
+          res.redirect("/");
+        })
+      }else{
+        res.render("anasayfa", {  gorevler : gelenVeriler });
+      }
     });
 });
 app.post("/ekle", function(req, res){
@@ -64,15 +59,10 @@ app.post("/ekle", function(req, res){
     res.redirect("/");
   });
 });
-
-
-
-
-
-
-
-
-
-
-
+app.post("/sil", function(req, res){
+    var dokumanID = req.body.id;
+    Gorev.deleteOne({ _id : dokumanID }, function(err){
+        res.redirect("/");
+    })
+});
 app.listen(5000);

@@ -2,6 +2,7 @@ body{
   background-color: var(--light);
 }
 h1{
+  font-size:2.3rem;
   color: #fff;
   padding: 10px;
 }
@@ -9,7 +10,7 @@ h1{
   max-width: 400px;
   margin: 40px auto; /* ortalıyor */
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .baslik{
   background-color: var(--info);
@@ -32,11 +33,20 @@ input[type="checkbox"] {
 }
 input[type="text"] {
   text-align: center;
+  margin:20px;
   height: 60px;
   border: none;
   font-size: 20px;
   width: 300px;
   background-color: transparent;
+}
+input[type="text"]:focus{
+  outline: none;
+  box-shadow: inset 0 -3px 0 0  var(--info);
+}
+input:checked+p{
+  text-decoration: line-through;
+  text-decoration-color: var(--info);
 }
 button{
   min-height: 50px;
@@ -48,5 +58,5 @@ button{
   border-color: transparent;
   color:#fff;
   font-size: 30px;
-  padding-bottom: 8px;
+  padding-bottom: 15px;
 }

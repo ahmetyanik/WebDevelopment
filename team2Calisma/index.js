@@ -26,6 +26,8 @@ var connection = mysql.createConnection({
 });
 
 
+
+
 app.get("/", function(req,res){
 
   var sql= "SELECT * FROM canlilar.hayvanlar";
@@ -34,6 +36,7 @@ app.get("/", function(req,res){
 
 
     var tumHayvanlar=results;
+    console.log(tumHayvanlar);
 
     res.render("anasayfa", {
                             butunHayvanlar:tumHayvanlar} );
@@ -60,6 +63,8 @@ app.get("/hayvan/:adi/:id", function(req,res){
     var evcilmi= results[idDegeri].evcilmi;
     var beslenme= results[idDegeri].beslenme;
     var aciklama= results[idDegeri].aciklama;
+
+    console.log(ad);
 
 
     res.render("hayvan", {  ad:ad,
@@ -100,6 +105,9 @@ app.post("/veritabanina-ekle",upload.single('dosya'),function(req,res){
   var aciklama=req.body.aciklama;
   var evcilmi = req.body.hayvanevcilmi;
   var beslenme=req.body.hayvanbeslenme;
+
+  console.log(req.body);
+  console.log(ad);
 
   var sql= "INSERT INTO canlilar.hayvanlar (ad, tur, anavatani,aciklama,evcilmi,beslenme,resimlinki) VALUES ('"+ad+"', '"+tur+"', '"+anavatani+"','"+aciklama+"','"+evcilmi+"','"+beslenme+"','"+resimlinki+"')";
 

@@ -65,4 +65,10 @@ app.post("/sil", function(req, res){
         res.redirect("/");
     })
 });
-app.listen(5000);
+let port = process.env.PORT;
+if(port == "" || port == null){
+  port = 5000;
+}
+app.listen(port, function(){
+  console.log("port numarasi : " + port);
+});

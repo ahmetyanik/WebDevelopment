@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
   </head>
   <body>
 
@@ -17,15 +19,40 @@
   <div class="row mt-5 bg-light d-flex">
 
     <div class="col-4 ">
-      <img class="w-100  " style="width:40rem" src="<%=hayvanlar[id].resimlinki%>" alt="">
+      <% for(var i=0;i<hayvanlar.length;i++){ %>
+
+      <%  if(hayvanlar[i].id==id){ %>
+         <img class="w-100  " style="width:40rem" src="<%=hayvanlar[i].resimlinki%>" alt="">
+
     </div>
 
+    <%  } %>
+    <%  } %>
+
     <div class="col-8 ">
-        <h1 class=""><%=hayvanlar[id].adi%></h1>
-        <p><h6 class="d-inline-block">Türü:</h6>  <%=hayvanlar[id].turu%></p>
-        <p><h6 class="d-inline-block">Anavatani:</h6>  <%=hayvanlar[id].anavatani%></p>
-        <p><h6 class="d-inline-block">Aciklama:</h6>  <%=hayvanlar[id].aciklama%></p>
-      
+
+  <% for(var i=0;i<hayvanlar.length;i++){ %>
+
+  <%  if(hayvanlar[i].id==id){ %>
+
+      <form class="" action="/yazisil" method="get">
+        <h1 class=""><%=adi%></h1>
+        <p><h6 class="d-inline-block">Türü:</h6>  <%=hayvanlar[i].turu%></p>
+        <p><h6 class="d-inline-block">Anavatani:</h6>  <%=hayvanlar[i].anavatani%></p>
+        <p><h6 class="d-inline-block">Aciklama:</h6>  <%=hayvanlar[i].aciklama%></p>
+        <button type="submit" name="button"><i class="fas fa-trash-alt copluk"></i></button>
+        <input class="d-none" type="text" name="id" value=" <%=hayvanlar[i].id%>">
+
+
+      </form>
+
+  <%  } %>
+
+
+
+
+
+<%  } %>
 
 
     </div>

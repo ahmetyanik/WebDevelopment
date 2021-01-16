@@ -38,7 +38,7 @@ app.get("/", function(req,res){
     var veriTabaniHayvanlar = results[0];
     var veriTabaniKategoriler= results[1];
 
-
+    console.log(veriTabaniHayvanlar);
 
   res.render("anasayfa",{
                           hayvanlar:veriTabaniHayvanlar,
@@ -68,10 +68,10 @@ app.post("/veritabanina-ekle"   ,  upload.single('dosya')  ,  function(req, res)
     });
 });
 
-
 app.get("/hayvan/:hayvanAdi/:id", function(req,res){
 
-  var idDegeri = req.params.id-1;
+  var idDegeri = req.params.id;
+  var adi=req.params.hayvanAdi;
 
 
   connection.query("SELECT * from hayvanlar; SELECT * from kategoriler ", function(err, results, fields){
@@ -79,18 +79,36 @@ app.get("/hayvan/:hayvanAdi/:id", function(req,res){
     var veriTabaniHayvanlar = results[0];
     var veriTabaniKategoriler= results[1];
 
-    console.log(veriTabaniHayvanlar);
-
 
 
   res.render("hayvan",{
                           hayvanlar:veriTabaniHayvanlar,
                           kategoriler:veriTabaniKategoriler,
-                          id:idDegeri}
+                          id:idDegeri,
+                          adi:adi}
             );
 });
 
 });
+
+app.get("/yazisil"   ,  function(req, res){
+
+    var hayvanId = req.query.id;
+    console.log(hayvanId);
+
+
+
+    var sql = "DELETE FROM hayvanlar.hayvanlar WHERE id='"+hayvanId+"'";
+    connection.query(sql, function(err, results, fields){
+      res.redirect("/");
+    });
+});
+
+
+
+
+
+
 
 
 

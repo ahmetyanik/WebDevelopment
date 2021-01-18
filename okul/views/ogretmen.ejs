@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ogrenci Portali</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  </head>
+  <body >
+
+<div class="container mt-5 bg-light">
+
+  <div class="row">
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem"  src="resimler/logo.jpg" alt="">
+
+    </div>
+
+    <div class="col-6  d-flex justify-content-center">
+
+      <div class="">
+        <h4 >CUMHURIYET ILKOKULU ÖGRETMEN SAYFASI</h4>
+        <br><br>
+
+        <div class="d-flex justify-content-center"">
+          <h4 ></h4>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem" src="<%=ogretmen[0].resimlinki%>" alt="">
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="row ">
+
+
+
+    <div class="col-6 ">
+
+<div class="d-flex justify-content-center ">
+  <h5 class="mb-3">Ögretmen Bilgileri</h5>
+
+</div>
+
+
+
+<h6>TC Kimlik Numarasi:<%=ogretmen[0].tcno%></h6>
+<hr>
+<h6>Adi ve Soyadi     :<%=ogretmen[0].adsoyad%></h6>
+<hr>
+<h6>Brans            :<%=ogretmen[0].brans%></h6>
+<hr>
+<h6>Adresi            :<%=ogretmen[0].adres%></h6>
+
+
+    </div>
+
+    <div class="col-6 d-flex justify-content-center sutun">
+
+      <div class="">
+        <button type="button" class="btn btn-primary">Not Girme</button>
+        <button type="button" class="btn btn-secondary">Mesajlar</button>
+        <button type="button" class="btn btn-primary">Sinif Listesi</button>
+        <button type="button" class="btn btn-secondary">Ders Programi</button>
+      </div>
+
+      <div class="kirmizi">
+        <a href="/"><button  type="button" class="btn btn-danger">Sistemden Cikis</button></a>
+
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+  </body>
+</html>

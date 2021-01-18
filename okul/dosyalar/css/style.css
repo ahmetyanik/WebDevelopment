@@ -66,4 +66,10 @@
 
 .cardlar:hover{
 box-shadow: 5px 5px 5px gray;
+text-decoration: none;
+}
+
+.card-still:hover{
+  text-decoration: none;
+  font-size: 2rem;
 }

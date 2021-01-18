@@ -71,8 +71,6 @@
 <h6>Adresi            :<%=ogrenci[0].adres%></h6>
 <hr>
 
-kisiid, turkce, matematik, fen, sosyal, yabancidil, dinkulturu, gorselsanatlar, muzik
-
     </div>
 
     <div class="col-6">
@@ -82,14 +80,86 @@ kisiid, turkce, matematik, fen, sosyal, yabancidil, dinkulturu, gorselsanatlar, 
 </div>
 
 <div class="pl-5 mb-5">
-  <h6>Türkce:</h6>
-  <h6>Matematik:</h6>
-  <h6>Fen Bilimleri:</h6>
-  <h6>Sosyal Bilgiler:</h6>
-  <h6>Yabanci Dil:</h6>
-  <h6>Din Kültürü ve Ahlak Bilgisi:</h6>
-  <h6>Görsel Sanatlar:</h6>
-  <h6>Müzik:</h6>
+
+  <table class="table">
+  <thead class="Dersler">
+
+    <th>Dersler</th>
+    <th>Yazili1</th>
+    <th>Yazili2</th>
+    <th>Sözlü</th>
+    <th>Ort</th>
+
+
+
+  </thead>
+  <tbody>
+
+
+
+
+    <tr>
+    <th><h6>Türkce:</h6></th>
+    <td><%=notlar[0].turkce1%></td>
+    <td><%=notlar[0].turkce2%></td>
+    <td><%=notlar[0].turkcesozlu%></td>
+    <td><%=turkceort%></td>
+    </tr>
+    <tr>
+    <th><h6>Matematik:</h6></th>
+    <td><%=notlar[0].matematik1%></td>
+    <td><%=notlar[0].matematik2%></td>
+    <td><%=notlar[0].matematiksozlu%></td>
+    <td><%=matematikort%></td>
+    </tr>
+    <tr>
+    <th><h6>Fen Bilimleri:</h6></th>
+    <td><%=notlar[0].fen1%></td>
+    <td><%=notlar[0].fen2%></td>
+    <td><%=notlar[0].fensozlu%></td>
+    <td><%=fenort%></td>
+    </tr>
+    <tr>
+    <th><h6>Sosyal Bilgiler:</h6></th>
+    <td><%=notlar[0].sosyal1%></td>
+    <td><%=notlar[0].sosyal2%></td>
+    <td><%=notlar[0].sosyalsozlu%></td>
+    <td><%=sosyalort%></td>
+    </tr>
+    <tr>
+    <th><h6>Yabanci Dil:</h6></th>
+    <td><%=notlar[0].yabancidil1%></td>
+    <td><%=notlar[0].yabancidil2%></td>
+    <td><%=notlar[0].yabancidilsozlu%></td>
+    <td><%=yabancidilort%></td>
+    </tr>
+    <tr>
+    <th><h6>Din Kültürü ve Ahlak Bilgisi:</h6></th>
+    <td><%=notlar[0].dinkulturu1%></td>
+    <td><%=notlar[0].dinkulturu2%></td>
+    <td><%=notlar[0].dinkulturusozlu%></td>
+    <td><%=dinkulturuort%></td>
+    </tr>
+    <tr>
+    <th><h6>Görsel Sanatlar:</h6></th>
+    <td><%=notlar[0].gorselsanatlar1%></td>
+    <td><%=notlar[0].gorselsanatlar2%></td>
+    <td><%=notlar[0].gorselsanatlarsozlu%></td>
+    <td><%=gorselsanatlarort%></td>
+    </tr>
+    <tr>
+    <th><h6>Müzik:</h6></th>
+    <td><%=notlar[0].muzik1%></td>
+    <td><%=notlar[0].muzik2%></td>
+    <td><%=notlar[0].muzik1sozlu%></td>
+    <td><%=muzikort%></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
   <hr>
 </div>
 <div class="kirmizi mt-5">

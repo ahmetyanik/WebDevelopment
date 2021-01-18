@@ -45,9 +45,31 @@ app.get("/ogretmengiris",function(req,res){
 });
 
 
+app.get("/sinif", function(req,res){
+
+  var sql="SELECT * FROM okul.ogrenciler";
+
+  connection.query(sql,function(err,results,fields){
+
+  var ogrenciler = results;
+
+  console.log(ogrenciler.adsoyad);
+  console.log(ogrenciler.length);
+  console.log(ogrenciler[0].adsoyad);
 
 
-app.post("/giriskontrol",upload.single('dosya'),function(req,res){
+
+  res.render("sinif", {ogrenciler:ogrenciler});
+
+});
+
+
+});
+
+
+
+
+app.post("/ogrencigiriskontrol",upload.single('dosya'),function(req,res){
 
   var adsoyad = req.body.ogrenciadi;
   var numara  = req.body.ogrencinumarasi;
@@ -58,16 +80,56 @@ app.post("/giriskontrol",upload.single('dosya'),function(req,res){
     connection.query(sql,  function(err, results, fields){
       var bulunanOgrenci=results;
       console.log(bulunanOgrenci);
-      console.log(bulunanOgrenci.adsoyad);
+
+
 
 
       if(bulunanOgrenci.length>0){
 
-        res.render("ogrenci", {ogrenci:bulunanOgrenci});
+
+        var sql2="SELECT * FROM okul.notlar WHERE id IN (SELECT id FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"')";
+
+        connection.query(sql2,function(err,results,fields){
+
+          var notlar=results;
+          console.log(notlar);
+          console.log("Notlar0: "+notlar[0].turkce1);
+          var turkceort= ((notlar[0].turkce1+notlar[0].turkce2+notlar[0].turkcesozlu)/3).toFixed(2);
+          var matematikort= ((notlar[0].matematik1+notlar[0].matematik2+notlar[0].matematiksozlu)/3).toFixed(2);
+          var fenort= ((notlar[0].fen1+notlar[0].fen2+notlar[0].fensozlu)/3).toFixed(2);
+          var sosyalort= ((notlar[0].sosyal1+notlar[0].sosyal2+notlar[0].sosyalsozlu)/3).toFixed(2);
+
+          var yabancidilort= ((notlar[0].yabancidil1+notlar[0].yabancidil2+notlar[0].yabancidilsozlu)/3).toFixed(2);
+          var dinkulturuort= ((notlar[0].dinkulturu1+notlar[0].dinkulturu2+notlar[0].dinkulturusozlu)/3).toFixed(2);
+          var gorselsanatlarort= ((notlar[0].gorselsanatlar1+notlar[0].gorselsanatlar2+notlar[0].gorselsanatlarsozlu)/3).toFixed(2);
+          var muzikort= ((notlar[0].muzik1+notlar[0].muzik2+notlar[0].muzik1sozlu)/3).toFixed(2);
+
+          res.render("ogrenci",{  ogrenci:bulunanOgrenci,
+                                  notlar:notlar,
+                                  turkceort:turkceort,
+                                  matematikort:matematikort,
+                                  fenort:fenort,
+                                  sosyalort:sosyalort,
+                                  yabancidilort:yabancidilort,
+                                  dinkulturuort:dinkulturuort,
+                                  gorselsanatlarort:gorselsanatlarort,
+                                  muzikort:muzikort
+
+                                });
+
+        });
+      }else{
+
+        res.send("Böyle bir ögrenci bulunamadi!");
       }
 
 
+
+
     });
+
+
+
 
 
 
@@ -97,6 +159,8 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 
 
 });
+
+
 
 
 

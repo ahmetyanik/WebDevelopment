@@ -36,7 +36,7 @@ function kategorileriAl(callback){
   }else{
     connection.query("SELECT * from kategoriler", function(err, results, fields){
       kategoriler = results;
-      console.log("veri tabaından alındı.");
+      console.log("veri tabanından alındı.");
       return callback(kategoriler);
     });
   }
@@ -128,6 +128,8 @@ app.get("/arama" , function(req, res){
 app.get("/kitapekle", function(req, res){
     res.sendFile(__dirname + "/views/kitapekle.html");
 });
+
+
 app.post("/veritabanina-ekle"   ,  upload.single('dosya')  ,  function(req, res){
     var resimlinki = "";
     if(req.file){

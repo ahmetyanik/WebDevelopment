@@ -6,6 +6,8 @@ var storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now() + '.jpg')
   }
+
+
 });
 var upload = multer({ storage: storage });
 const mysql = require("mysql");
@@ -38,7 +40,7 @@ app.get("/", function(req,res){
     var veriTabaniHayvanlar = results[0];
     var veriTabaniKategoriler= results[1];
 
-
+    console.log(veriTabaniHayvanlar);
 
   res.render("anasayfa",{
                           hayvanlar:veriTabaniHayvanlar,
@@ -68,63 +70,66 @@ app.post("/veritabanina-ekle"   ,  upload.single('dosya')  ,  function(req, res)
     });
 });
 
-
 app.get("/hayvan/:hayvanAdi/:id", function(req,res){
 
-  var idDegeri = req.params.id-1;
+  var idDegeri = req.params.id;
+  var adi=req.params.hayvanAdi;
 
-  var sql= "SELECT * from hayvanlar";
 
-  connection.query(sql, function(err, results, fields){
+  connection.query("SELECT * from hayvanlar; SELECT * from kategoriler ", function(err, results, fields){
 
-    var idHayvan = idDegeri;
-    var hayvanAdi      = results[idDegeri].adi;
-    var hayvanTuru   = results[idDegeri].turu;
-    var hayvanAnavatani      = results[idDegeri].anavatani;
-    var hayvanAciklama   = results[idDegeri].aciklama;
-    var hayvanResim = results[idDegeri].resimlinki;
-    var sql2 = "SELECT * from kategoriler";
-
-    connection.query(sql,function(err,results,fields){
-
-      res.render("hayvan",{
-                              id:idHayvan,
-                              adi:hayvanAdi,
-                              turu:hayvanTuru,
-                              anavatani:hayvanAnavatani,
-                              aciklama:hayvanAnavatani,
-                              resim:hayvanResim,
-                              kategoriler:results
+    var veriTabaniHayvanlar = results[0];
+    var veriTabaniKategoriler= results[1];
 
 
 
-
-                });
-
-
-    })
-
-
-
-
+  res.render("hayvan",{
+                          hayvanlar:veriTabaniHayvanlar,
+                          kategoriler:veriTabaniKategoriler,
+                          id:idDegeri,
+                          adi:adi}
+            );
+});
 
 });
+
+app.get("/yazisil"   ,  function(req, res){
+
+    var hayvanId = req.query.id;
+    console.log(hayvanId);
+
+
+
+    var sql = "DELETE FROM hayvanlar.hayvanlar WHERE id='"+hayvanId+"'";
+    connection.query(sql, function(err, results, fields){
+      res.redirect("/");
+    });
 });
+
+
+
+
+
+
+
+
 
 app.get("/arama",function(req,res){
 
 var arananKelime = req.query.hayvan;
 
-var sql = "SELECT * FROM hayvanlar WHERE adi LIKE '%"+arananKelime+ "%';"
 
-connection.query(sql, function(err, results, fields){
+connection.query("SELECT * FROM hayvanlar WHERE adi LIKE '%"+arananKelime+ "%';SELECT * from kategoriler ", function(err, results, fields){
 
-var bulunanHayvanlar = results;
+var bulunanHayvanlar = results[0];
+var veriTabaniKategoriler=results[1];
 
 console.log(bulunanHayvanlar);
 
 res.render("arama", {
-                      hayvanlar:bulunanHayvanlar
+                      hayvanlar:bulunanHayvanlar,
+                      kategoriler:veriTabaniKategoriler
+
 })
 
 })
@@ -133,11 +138,20 @@ res.render("arama", {
 
 });
 
+var kategoriler=[];
+
 function turleriAl(callback){
 
-  connection.query("SELECT * FROM kategoriler",function(err, results, fields){
-    return callback(results);
-  });
+  if(kategoriler.length>0){
+    callback(kategoriler);
+  }else{
+    connection.query("SELECT * FROM kategoriler",function(err, results, fields){
+      return callback(results);
+    });
+
+  }
+
+
 }
 
 

@@ -1,3 +1,13 @@
+const multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/dosyalar/resimler')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+  }
+});
+var upload = multer({ storage: storage });
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -16,6 +26,8 @@ var connection = mysql.createConnection({
 });
 
 
+
+
 app.get("/", function(req,res){
 
   var sql= "SELECT * FROM canlilar.hayvanlar";
@@ -24,6 +36,7 @@ app.get("/", function(req,res){
 
 
     var tumHayvanlar=results;
+    console.log(tumHayvanlar);
 
     res.render("anasayfa", {
                             butunHayvanlar:tumHayvanlar} );
@@ -51,6 +64,9 @@ app.get("/hayvan/:adi/:id", function(req,res){
     var beslenme= results[idDegeri].beslenme;
     var aciklama= results[idDegeri].aciklama;
 
+    console.log(ad);
+
+
     res.render("hayvan", {  ad:ad,
                             id:id,
                             tur:tur,
@@ -58,7 +74,8 @@ app.get("/hayvan/:adi/:id", function(req,res){
                             resimlinki:resimlinki,
                             evcilmi:evcilmi,
                             beslenme:beslenme,
-                            aciklama:aciklama
+                            aciklama:aciklama,
+                            hayvanlar:results
 
     } );
 
@@ -66,6 +83,58 @@ app.get("/hayvan/:adi/:id", function(req,res){
   });
 
 });
+
+
+app.get("/hayvanekle",function(req,res){
+
+
+  res.sendFile(__dirname+"/views/hayvanekle.html")
+});
+
+
+app.post("/veritabanina-ekle",upload.single('dosya'),function(req,res){
+
+  var resimlinki = "";
+  if(req.file){
+    resimlinki = "/resimler/"+req.file.filename;
+  }
+
+  var ad = req.body.hayvanadi;
+  var tur=req.body.hayvanturu;
+  var anavatani = req.body.hayvananavatani;
+  var aciklama=req.body.aciklama;
+  var evcilmi = req.body.hayvanevcilmi;
+  var beslenme=req.body.hayvanbeslenme;
+
+  console.log(req.body);
+  console.log(ad);
+
+  var sql= "INSERT INTO canlilar.hayvanlar (ad, tur, anavatani,aciklama,evcilmi,beslenme,resimlinki) VALUES ('"+ad+"', '"+tur+"', '"+anavatani+"','"+aciklama+"','"+evcilmi+"','"+beslenme+"','"+resimlinki+"')";
+
+  connection.query(sql, function(err, results, fields){
+    res.redirect("/hayvanekle");
+  });
+
+
+});
+
+
+app.get("/arama",function(req,res){
+
+  var kelime=req.query.hayvan;
+
+  var sql="SELECT * FROM canlilar.hayvanlar Where canlilar.hayvanlar.ad LIKE '%" + kelime + "%'";
+
+  connection.query(sql, function(err, results, fields){
+      var bulunanHayvanlar=results;
+      var ad = bulunanHayvanlar[0].ad;
+      console.log(bulunanHayvanlar);
+      res.render("arama",{hayvanlar:bulunanHayvanlar,
+                          ad:ad
+      });
+  });
+
+})
 
 
 

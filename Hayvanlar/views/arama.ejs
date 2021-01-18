@@ -20,14 +20,11 @@
   <div class="container d-flex flex-wrap justify-content-center">
 
 <% for(var i=0;i<hayvanlar.length;i++) { %>
-
-<a href="/hayvan/<%=hayvanlar[i].id%>">
-
+<a href="/hayvan/<%=hayvanlar[i].adi%>/<%=hayvanlar[i].id%>">
   <div class="card mt-3 ml-1" style="width: 18rem;">
     <div class="d-flex justify-content-center">
     <img style="width:15rem; height:10rem" src="<%= hayvanlar[i].resimlinki %>" class="card-img-top" alt="...">
     </div>
-
     <div class="card-body">
       <h5 class="card-title"><%= hayvanlar[i].adi %></h5>
       <p class="card-text"></p>
@@ -42,9 +39,7 @@
       <a href="/turler" class="card-link"><%=hayvanlar[i].turu%> Türleri</a>
     </div>
   </div>
-
   </a>
-
   <% }  %>
 
 

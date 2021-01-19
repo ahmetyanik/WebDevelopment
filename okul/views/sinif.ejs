@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Ogrenci Portali</title>
+    <title>6-A SINIFI</title>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -62,17 +62,19 @@
 
   <hr>
 
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap mb-5 justify-content-center">
 
 
 
 
   <% for(var i = 0 ; i < ogrenciler.length ; i++ ){    %>
 
-    <div class="card d-flex justify-content-between mr-3" style="width: 12rem;">
+    <div class="card  mr-3" style="width: 12rem;">
+
+
 
       <div class="d-flex justify-content-center">
-  <img  style="height:10rem" src="<%=ogrenciler[i].resimlinki%>" class="card-img-top" alt="...">
+      <img  style="height:10rem" src="<%=ogrenciler[i].resimlinki%>" class="card-img-top" alt="...">
       </div>
 
   <div class="card-body">
@@ -80,15 +82,29 @@
   </div>
 
   <div class="d-flex justify-content-between card-body">
-    <div class="">
-    <a href="#" class="card-link">Not Girisi</a>  
-    </div>
+
+    <form class="form-signin" enctype="multipart/form-data" action="/ogrencinotsayfasi" method="post">
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-light ml-3 " type="submit">Not Girisi<input class="d-none" type="text" name="adsoyad" value="<%=ogrenciler[i].adsoyad%>"></button>
+
+      </div>
+
+    </form>
 
     <div class="">
-      <a href="#" class="card-link">Ögrenci Bilgisi</a>
+
+
+
+
+
+
     </div>
 
   </div>
+
+
+
+  </form>
 
 
 </div>

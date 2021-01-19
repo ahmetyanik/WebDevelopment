@@ -75,12 +75,23 @@
 
     <div class="col-6 d-flex justify-content-center sutun">
 
-      <div class="">
-        <button type="button" class="btn btn-primary">Not Girme</button>
-        <button type="button" class="btn btn-secondary">Mesajlar</button>
-        <button type="button" class="btn btn-primary">Sinif Listesi</button>
-        <button type="button" class="btn btn-secondary">Ders Programi</button>
-      </div>
+<form class="" enctype="multipart/form-data" action="/sinif" method="post">
+  <div class="">
+<form class="" enctype="multipart/form-data" action="/ogrencinotsayfasi" method="post">
+    <button class="btn btn-primary ml-3 " type="submit">Not Girisi<input class="d-none" type="text" name="ogretmen" value="<%=ogretmen[0].adsoyad%>"></button>
+</form>
+
+
+
+
+
+
+    <button type="button" class="btn btn-secondary">Mesajlar</button>
+    <button type="button" class="btn btn-primary">Sinif Listesi</button>
+    <button type="button" class="btn btn-secondary">Ders Programi</button>
+  </div>
+</form>
+
 
       <div class="kirmizi">
         <a href="/"><button  type="button" class="btn btn-danger">Sistemden Cikis</button></a>

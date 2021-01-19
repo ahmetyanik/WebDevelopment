@@ -45,17 +45,20 @@ app.get("/ogretmengiris",function(req,res){
 });
 
 
-app.get("/sinif", function(req,res){
+app.post("/sinif", function(req,res){
+
+  var ogretmen = req.body.ogretmen;
 
   var sql="SELECT * FROM okul.ogrenciler";
+
+
+  console.log(ogretmen);
 
   connection.query(sql,function(err,results,fields){
 
   var ogrenciler = results;
 
-  console.log(ogrenciler.adsoyad);
-  console.log(ogrenciler.length);
-  console.log(ogrenciler[0].adsoyad);
+
 
 
 
@@ -65,6 +68,9 @@ app.get("/sinif", function(req,res){
 
 
 });
+
+
+
 
 
 
@@ -151,6 +157,9 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
       if(bulunanOgretmen.length>0){
 
         res.render("ogretmen", {ogretmen:bulunanOgretmen});
+
+
+
       }
 
 
@@ -159,6 +168,36 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 
 
 });
+
+
+app.post("/ogrencinotsayfasi",upload.single('dosya'),function(req,res){
+
+  var ogretmen = req.body.ogretmen;
+
+  console.log(ogretmen);
+
+  var adsoyad = req.body.adsoyad;
+
+  var sql = "SELECT * FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"'";
+
+  connection.query(sql,  function(err, results, fields){
+
+
+    var bulunanOgrenci = results[0];
+    console.log(bulunanOgrenci);
+
+
+
+    res.render("ogrencinotsayfasi", {adsoyad:adsoyad,
+                                    ogrenci:bulunanOgrenci,
+                                    ogretmen:ogretmen});
+
+  });
+
+
+
+
+})
 
 
 

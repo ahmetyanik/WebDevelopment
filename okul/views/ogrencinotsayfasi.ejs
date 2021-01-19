@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ogrenci Portali</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  </head>
+  <body >
+
+<div class="container mt-5 bg-light">
+
+  <div class="row">
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem"  src="resimler/logo.jpg" alt="">
+
+    </div>
+
+    <div class="col-6  d-flex justify-content-center">
+
+      <div class="">
+        <h4 >CUMHURIYET ILKOKULU ÖGRENCI SAYFASI</h4>
+        <br><br>
+
+        <div class="d-flex justify-content-center"">
+          <h4 ><%=adsoyad%></h4>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem" src="<%=ogrenci.resimlinki%>" alt="">
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="row ">
+
+    <div class="col-6">
+
+
+
+      <h6>TC Kimlik Numarasi:<%=ogrenci.tcno%></h6>
+      <hr>
+      <h6>Adi ve Soyadi     :<%=ogrenci.adsoyad%></h6>
+      <hr>
+      <h6>Ögrenci Numarasi  :<%=ogrenci.ogrencino%></h6>
+      <hr>
+      <h6>Adresi            :<%=ogrenci.adres%></h6>
+      <hr>
+
+    </div>
+
+    <div class="col-6">
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+  </body>
+</html>

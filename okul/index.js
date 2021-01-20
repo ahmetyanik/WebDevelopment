@@ -148,6 +148,9 @@ var yetkiliOgretmenBrans="";
 var yazili1="";
 var yazili2="";
 var sozlu="";
+var formyazili1;
+var formyazili2;
+var formsozlu;
 
 
 
@@ -248,6 +251,7 @@ app.post("/ogrencinotsayfasi",upload.single('dosya'),function(req,res){
                                       bulunanOgretmen:bulunanOgretmen,
 
 
+
                                       });
 
 
@@ -264,21 +268,29 @@ console.log("yazili1 :"+yazili1);
 
 app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
 
-  var formyazili1 = req.body.formyazili1;
-  var formyazili2 = req.body.formyazili2;
-  var formsozlu = req.body.formsozlu;
+  formyazili1 = req.body.formyazili1;
+  formyazili2 = req.body.formyazili2;
+  formsozlu = req.body.formsozlu;
 
+
+  console.log("---------------------------------------------");
+  console.log("yetkiliOgretmen: "+yetkiliOgretmen);
+  console.log("yetkiliOgretmenBrans: "+yetkiliOgretmenBrans);
   console.log("formyazili1: "+formyazili1);
-  console.log("yazili1: "+yazili1);
+  console.log("formyazili2: "+formyazili2);
+  console.log("formsozlu: "+formsozlu);
+  console.log("yazili1 :"+yazili1);
+  console.log("yazili2 :"+yazili2);
+  console.log("sozlu :"+sozlu);
+
+  console.log("UPDATE okul.notlar SET '"+yazili1+"'='"+formyazili1+"', '"+yazili2+"'='"+ formyazili2+"', ''"+sozlu+"'='"+formsozlu+"' WHERE id=1");
 
 
 
+});
 
 
-
-  connection.query("UPDATE okul.notlar SET '"+yazili1+"'= '"+formyazili1+"','"+yazili2+"'= '"+formyazili2+"',''"+sozlu+"'= '"+formsozlu+"' WHERE id=1" , function(err, results, fields){
-    res.redirect("/");
-  });
+connection.query("UPDATE okul.notlar SET '"+yazili1+"'='"+formyazili1+"', '"+yazili2+"'='"+ formyazili2+"', ''"+sozlu+"'='"+formsozlu+"' WHERE id=1", function(err, results, fields){
 
 });
 

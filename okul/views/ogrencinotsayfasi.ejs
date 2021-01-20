@@ -68,6 +68,27 @@
 
     <div class="col-6">
 
+      <h6>Sayin <span class=""><%=bulunanOgretmen.adsoyad%></span> lütfen ögrencinin <%=brans%> notunu giriniz:</h6>
+
+
+
+
+      <br>
+      <ul class="notlar-cizgi">
+          <form enctype="multipart/form-data" action="/veritabaninaNotGonder" class="form-signin" method="post">
+          <li><label for="">1. Yazili:</label> <input type="number" name="formyazili1" value="" placeholder=""></li>
+          <li><label for="">2. Yazili:</label> <input type="number" name="formyazili2" value=""></li>
+          <li><label class="mr-3" for="">Sözlü:</label> <input type="number" name="formsozlu" value=""></li>
+          <input class=" btn btn-danger" type="submit" value="Ekle" >
+        </form>
+      </ul>
+
+
+      <div class="kirmizi">
+        <a href="/"><button  type="button" class="btn btn-danger">Sistemden Cikis</button></a>
+      </div>
+
+
     </div>
 
 

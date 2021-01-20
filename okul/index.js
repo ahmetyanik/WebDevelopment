@@ -49,6 +49,7 @@ app.post("/sinif", function(req,res){
 
   var ogretmen = req.body.ogretmen;
 
+
   var sql="SELECT * FROM okul.ogrenciler";
 
 
@@ -141,6 +142,18 @@ app.post("/ogrencigiriskontrol",upload.single('dosya'),function(req,res){
 
 });
 
+
+var yetkiliOgretmen="";
+var yetkiliOgretmenBrans="";
+var yazili1="";
+var yazili2="";
+var sozlu="";
+
+
+
+
+
+
 app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 
   var adsoyad = req.body.ogretmenadi;
@@ -150,16 +163,40 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 
     connection.query(sql,  function(err, results, fields){
       var bulunanOgretmen=results;
-      console.log(bulunanOgretmen);
-      console.log(bulunanOgretmen.adsoyad);
+      yetkiliOgretmen=bulunanOgretmen[0].adsoyad;
+      yetkiliOgretmenBrans=bulunanOgretmen[0].brans;
+
+
+      if(yetkiliOgretmenBrans=="Türkce"){
+
+          yazili1="turkce1";
+          yazili2="turkce2";
+          sozlu="turkcesozlu";
+
+      }else if (yetkiliOgretmenBrans=="Matematik") {
+
+        yazili1="matematik1";
+        yazili2="matematik2";
+        sozlu="matematiksozlu";
+
+      }
+
+      console.log("yazili1 :"+yazili1);
+
+
+
 
 
       if(bulunanOgretmen.length>0){
 
-        res.render("ogretmen", {ogretmen:bulunanOgretmen});
+        res.render("ogretmen", {ogretmen:bulunanOgretmen,
+                                yetkiliOgretmen:yetkiliOgretmen});
 
 
 
+      }else{
+
+        res.send("Bilgi Bulunamadi!");
       }
 
 
@@ -170,34 +207,88 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 });
 
 
+
 app.post("/ogrencinotsayfasi",upload.single('dosya'),function(req,res){
 
-  var ogretmen = req.body.ogretmen;
-
+  var ogretmen=yetkiliOgretmen;
+  var brans=yetkiliOgretmenBrans;
   console.log(ogretmen);
+
+
 
   var adsoyad = req.body.adsoyad;
 
-  var sql = "SELECT * FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"'";
 
-  connection.query(sql,  function(err, results, fields){
+
+
+  connection.query("SELECT * FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"'","SELECT * FROM okul.notlar WHERE id IN (SELECT id FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"')", function(err, results, fields){
 
 
     var bulunanOgrenci = results[0];
+    var bulunanNotlar =results[1];
+
+
+
+
+
+
     console.log(bulunanOgrenci);
+    connection.query("SELECT * FROM okul.ogretmenler WHERE adsoyad='"+ogretmen+"'", function(err,results,fields){
+
+      var bulunanOgretmen=results[0];
+
+      console.log("yetkiliOgretmen: "+yetkiliOgretmen);
+      console.log("yetkiliOgretmenBrans: "+yetkiliOgretmenBrans);
+
+      res.render("ogrencinotsayfasi", {adsoyad:adsoyad,
+                                      ogrenci:bulunanOgrenci,
+                                      yetkiliOgretmen:ogretmen,
+                                      brans:brans,
+                                      notlar:bulunanNotlar,
+                                      bulunanOgretmen:bulunanOgretmen,
 
 
+                                      });
 
-    res.render("ogrencinotsayfasi", {adsoyad:adsoyad,
-                                    ogrenci:bulunanOgrenci,
-                                    ogretmen:ogretmen});
+
+  });
 
   });
 
 
+});
+
+console.log("yetkiliOgretmen: "+yetkiliOgretmen);
+console.log("yetkiliOgretmenBrans: "+yetkiliOgretmenBrans);
+console.log("yazili1 :"+yazili1);
+
+app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
+
+  var formyazili1 = req.body.formyazili1;
+  var formyazili2 = req.body.formyazili2;
+  var formsozlu = req.body.formsozlu;
+
+  console.log("formyazili1: "+formyazili1);
+  console.log("yazili1: "+yazili1);
 
 
-})
+
+
+
+
+  connection.query("UPDATE okul.notlar SET '"+yazili1+"'= '"+formyazili1+"','"+yazili2+"'= '"+formyazili2+"',''"+sozlu+"'= '"+formsozlu+"' WHERE id=1" , function(err, results, fields){
+    res.redirect("/");
+  });
+
+});
+
+
+
+
+
+
+
+
 
 
 

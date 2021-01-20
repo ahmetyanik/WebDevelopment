@@ -73,3 +73,7 @@ text-decoration: none;
   text-decoration: none;
   font-size: 2rem;
 }
+
+.notlar-cizgi{
+  list-style: none;
+}

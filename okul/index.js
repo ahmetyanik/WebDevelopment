@@ -182,6 +182,42 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
         yazili2="matematik2";
         sozlu="matematiksozlu";
 
+      }else if (yetkiliOgretmenBrans=="Fen Bilimleri") {
+
+        yazili1="fen1";
+        yazili2="fen2";
+        sozlu="fensozlu";
+
+      }else if (yetkiliOgretmenBrans=="Sosyal Bilgiler") {
+
+        yazili1="sosyal1";
+        yazili2="sosyal2";
+        sozlu="sosyalsozlu";
+
+      }else if (yetkiliOgretmenBrans=="Yabanci Dil") {
+
+        yazili1="yabancidil1";
+        yazili2="yabancidil2";
+        sozlu="yabancidilsozlu";
+
+      }else if (yetkiliOgretmenBrans=="Din Kültürü ve Ahlak Bilgisi") {
+
+        yazili1="dinkulturu1";
+        yazili2="dinkulturu2";
+        sozlu="dinkulturusozlu";
+
+      }else if (yetkiliOgretmenBrans=="Görsel Sanatlar") {
+
+        yazili1="gorselsanatlar1";
+        yazili2="gorselsanatlar2";
+        sozlu="gorselsanatlarsozlu";
+
+      }else if (yetkiliOgretmenBrans=="Müzik") {
+
+        yazili1="muzik1";
+        yazili2="muzik2";
+        sozlu="muzik1sozlu";
+
       }
 
       console.log("yazili1 :"+yazili1);
@@ -283,16 +319,17 @@ app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
   console.log("yazili2 :"+yazili2);
   console.log("sozlu :"+sozlu);
 
-  console.log("UPDATE okul.notlar SET '"+yazili1+"'='"+formyazili1+"', '"+yazili2+"'='"+ formyazili2+"', ''"+sozlu+"'='"+formsozlu+"' WHERE id=1");
+  console.log("UPDATE okul.notlar SET " +yazili1+"="+formyazili1+","+yazili2+"="+formyazili2+","+sozlu+"="+formsozlu + " WHERE id=1");
 
+  connection.query("UPDATE okul.notlar SET " +yazili1+"="+formyazili1+","+yazili2+"="+formyazili2+","+sozlu+"="+formsozlu + " WHERE id=2", function(err, results, fields){
 
-
-});
-
-
-connection.query("UPDATE okul.notlar SET '"+yazili1+"'='"+formyazili1+"', '"+yazili2+"'='"+ formyazili2+"', ''"+sozlu+"'='"+formsozlu+"' WHERE id=1", function(err, results, fields){
+    res.redirect("/");
+  });
 
 });
+
+
+
 
 
 

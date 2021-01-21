@@ -94,39 +94,55 @@ app.post("/ogrencigiriskontrol",upload.single('dosya'),function(req,res){
       if(bulunanOgrenci.length>0){
 
 
-        var sql2="SELECT * FROM okul.notlar WHERE id IN (SELECT id FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"')";
 
-        connection.query(sql2,function(err,results,fields){
 
-          var notlar=results;
+        connection.query("SELECT * FROM okul.notlar WHERE id IN (SELECT id FROM okul.ogrenciler WHERE adsoyad='"+adsoyad+"')", function(err,results,fields){
+
+          var notlar=results[0];
+
           console.log(notlar);
-          console.log("Notlar0: "+notlar[0].turkce1);
-          var turkceort= ((notlar[0].turkce1+notlar[0].turkce2+notlar[0].turkcesozlu)/3).toFixed(2);
-          var matematikort= ((notlar[0].matematik1+notlar[0].matematik2+notlar[0].matematiksozlu)/3).toFixed(2);
-          var fenort= ((notlar[0].fen1+notlar[0].fen2+notlar[0].fensozlu)/3).toFixed(2);
-          var sosyalort= ((notlar[0].sosyal1+notlar[0].sosyal2+notlar[0].sosyalsozlu)/3).toFixed(2);
-
-          var yabancidilort= ((notlar[0].yabancidil1+notlar[0].yabancidil2+notlar[0].yabancidilsozlu)/3).toFixed(2);
-          var dinkulturuort= ((notlar[0].dinkulturu1+notlar[0].dinkulturu2+notlar[0].dinkulturusozlu)/3).toFixed(2);
-          var gorselsanatlarort= ((notlar[0].gorselsanatlar1+notlar[0].gorselsanatlar2+notlar[0].gorselsanatlarsozlu)/3).toFixed(2);
-          var muzikort= ((notlar[0].muzik1+notlar[0].muzik2+notlar[0].muzik1sozlu)/3).toFixed(2);
-
-          res.render("ogrenci",{  ogrenci:bulunanOgrenci,
-                                  notlar:notlar,
-                                  turkceort:turkceort,
-                                  matematikort:matematikort,
-                                  fenort:fenort,
-                                  sosyalort:sosyalort,
-                                  yabancidilort:yabancidilort,
-                                  dinkulturuort:dinkulturuort,
-                                  gorselsanatlarort:gorselsanatlarort,
-                                  muzikort:muzikort,
 
 
+          console.log("Notlar0: "+notlar.turkce1);
+          var turkceort= ((notlar.turkce1+notlar.turkce2+notlar.turkcesozlu)/3).toFixed(2);
+          var matematikort= ((notlar.matematik1+notlar.matematik2+notlar.matematiksozlu)/3).toFixed(2);
+          var fenort= ((notlar.fen1+notlar.fen2+notlar.fensozlu)/3).toFixed(2);
+          var sosyalort= ((notlar.sosyal1+notlar.sosyal2+notlar.sosyalsozlu)/3).toFixed(2);
 
-                                });
+          var yabancidilort= ((notlar.yabancidil1+notlar.yabancidil2+notlar.yabancidilsozlu)/3).toFixed(2);
+          var dinkulturuort= ((notlar.dinkulturu1+notlar.dinkulturu2+notlar.dinkulturusozlu)/3).toFixed(2);
+          var gorselsanatlarort= ((notlar.gorselsanatlar1+notlar.gorselsanatlar2+notlar.gorselsanatlarsozlu)/3).toFixed(2);
+          var muzikort= ((notlar.muzik1+notlar.muzik2+notlar.muzik1sozlu)/3).toFixed(2);
+          connection.query("SELECT * FROM okul.ogretmenler", function(err,results,fields){
 
-        });
+          var ogretmenler= results;
+          console.log(ogretmenler);
+          console.log(ogretmenler[0].adsoyad);
+
+            res.render("ogrenci",{  ogrenci:bulunanOgrenci,
+                                    notlar:notlar,
+                                    turkceort:turkceort,
+                                    matematikort:matematikort,
+                                    fenort:fenort,
+                                    sosyalort:sosyalort,
+                                    yabancidilort:yabancidilort,
+                                    dinkulturuort:dinkulturuort,
+                                    gorselsanatlarort:gorselsanatlarort,
+                                    muzikort:muzikort,
+                                    ogretmenler:ogretmenler
+
+
+
+
+                                  });
+
+          });
+
+          })
+
+
+
+
       }else{
 
         res.send("Böyle bir ögrenci bulunamadi!");

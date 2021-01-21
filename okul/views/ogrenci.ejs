@@ -75,13 +75,17 @@
   <a href="/mesaj"><button  type="button" class="btn btn-danger">Mesaj Gönder</button></a>
 
 
-  <label for="cars">Ögretmen Seciniz:</label>
+  <label for="cars">Ögretmen:</label>
+
+
 
 <select id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
+
+  <% for(var i = 0 ; i < ogretmenler.length ; i++) { %>
+    <option value="<%ogretmenler[0].brans%>"><%=ogretmenler[i].adsoyad%></option>
+  <% } %>
+
+
 </select>
 
 <a href="/"><button  type="button" class="btn btn-danger">Sistemden Cikis</button></a>
@@ -119,58 +123,58 @@
 
     <tr>
     <th><h6>Türkce:</h6></th>
-    <td><%=notlar[0].turkce1%></td>
-    <td><%=notlar[0].turkce2%></td>
-    <td><%=notlar[0].turkcesozlu%></td>
+    <td><%=notlar.turkce1%></td>
+    <td><%=notlar.turkce2%></td>
+    <td><%=notlar.turkcesozlu%></td>
     <td><%=turkceort%></td>
     </tr>
     <tr>
     <th><h6>Matematik:</h6></th>
-    <td><%=notlar[0].matematik1%></td>
-    <td><%=notlar[0].matematik2%></td>
-    <td><%=notlar[0].matematiksozlu%></td>
+    <td><%=notlar.matematik1%></td>
+    <td><%=notlar.matematik2%></td>
+    <td><%=notlar.matematiksozlu%></td>
     <td><%=matematikort%></td>
     </tr>
     <tr>
     <th><h6>Fen Bilimleri:</h6></th>
-    <td><%=notlar[0].fen1%></td>
-    <td><%=notlar[0].fen2%></td>
-    <td><%=notlar[0].fensozlu%></td>
+    <td><%=notlar.fen1%></td>
+    <td><%=notlar.fen2%></td>
+    <td><%=notlar.fensozlu%></td>
     <td><%=fenort%></td>
     </tr>
     <tr>
     <th><h6>Sosyal Bilgiler:</h6></th>
-    <td><%=notlar[0].sosyal1%></td>
-    <td><%=notlar[0].sosyal2%></td>
-    <td><%=notlar[0].sosyalsozlu%></td>
+    <td><%=notlar.sosyal1%></td>
+    <td><%=notlar.sosyal2%></td>
+    <td><%=notlar.sosyalsozlu%></td>
     <td><%=sosyalort%></td>
     </tr>
     <tr>
     <th><h6>Yabanci Dil:</h6></th>
-    <td><%=notlar[0].yabancidil1%></td>
-    <td><%=notlar[0].yabancidil2%></td>
-    <td><%=notlar[0].yabancidilsozlu%></td>
+    <td><%=notlar.yabancidil1%></td>
+    <td><%=notlar.yabancidil2%></td>
+    <td><%=notlar.yabancidilsozlu%></td>
     <td><%=yabancidilort%></td>
     </tr>
     <tr>
     <th><h6>Din Kültürü ve Ahlak Bilgisi:</h6></th>
-    <td><%=notlar[0].dinkulturu1%></td>
-    <td><%=notlar[0].dinkulturu2%></td>
-    <td><%=notlar[0].dinkulturusozlu%></td>
+    <td><%=notlar.dinkulturu1%></td>
+    <td><%=notlar.dinkulturu2%></td>
+    <td><%=notlar.dinkulturusozlu%></td>
     <td><%=dinkulturuort%></td>
     </tr>
     <tr>
     <th><h6>Görsel Sanatlar:</h6></th>
-    <td><%=notlar[0].gorselsanatlar1%></td>
-    <td><%=notlar[0].gorselsanatlar2%></td>
-    <td><%=notlar[0].gorselsanatlarsozlu%></td>
+    <td><%=notlar.gorselsanatlar1%></td>
+    <td><%=notlar.gorselsanatlar2%></td>
+    <td><%=notlar.gorselsanatlarsozlu%></td>
     <td><%=gorselsanatlarort%></td>
     </tr>
     <tr>
     <th><h6>Müzik:</h6></th>
-    <td><%=notlar[0].muzik1%></td>
-    <td><%=notlar[0].muzik2%></td>
-    <td><%=notlar[0].muzik1sozlu%></td>
+    <td><%=notlar.muzik1%></td>
+    <td><%=notlar.muzik2%></td>
+    <td><%=notlar.muzik1sozlu%></td>
     <td><%=muzikort%></td>
     </tr>
 

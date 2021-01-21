@@ -120,7 +120,9 @@ app.post("/ogrencigiriskontrol",upload.single('dosya'),function(req,res){
                                   yabancidilort:yabancidilort,
                                   dinkulturuort:dinkulturuort,
                                   gorselsanatlarort:gorselsanatlarort,
-                                  muzikort:muzikort
+                                  muzikort:muzikort,
+
+
 
                                 });
 
@@ -307,6 +309,7 @@ app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
   formyazili1 = req.body.formyazili1;
   formyazili2 = req.body.formyazili2;
   formsozlu = req.body.formsozlu;
+  formid=req.body.formid;
 
 
   console.log("---------------------------------------------");
@@ -319,14 +322,15 @@ app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
   console.log("yazili2 :"+yazili2);
   console.log("sozlu :"+sozlu);
 
-  console.log("UPDATE okul.notlar SET " +yazili1+"="+formyazili1+","+yazili2+"="+formyazili2+","+sozlu+"="+formsozlu + " WHERE id=1");
+  console.log("UPDATE okul.notlar SET " +yazili1+"="+formyazili1+","+yazili2+"="+formyazili2+","+sozlu+"="+formsozlu + " WHERE "+"id="+formid);
 
-  connection.query("UPDATE okul.notlar SET " +yazili1+"="+formyazili1+","+yazili2+"="+formyazili2+","+sozlu+"="+formsozlu + " WHERE id=2", function(err, results, fields){
+  connection.query("UPDATE okul.notlar SET " +yazili1+"="+formyazili1+","+yazili2+"="+formyazili2+","+sozlu+"="+formsozlu + " WHERE "+"id="+formid, function(err, results, fields){
 
-    res.redirect("/");
+
   });
 
 });
+
 
 
 

@@ -72,28 +72,35 @@
 <hr>
 
 <div class="">
-  <a href="/mesaj"><button  type="button" class="btn btn-danger">Mesaj Gönder</button></a>
+
+<form enctype="multipart/form-data" action="/mesajgonder" class="form-signin" method="post">
+
+
+  <input class="d-none" type="text" name="mesajogrenci" value="<%=ogrenci[0].id%>">
 
 
   <label for="cars">Ögretmen:</label>
 
 
 
-<select id="cars">
+
+
+<select name="secilenOgretmen">
 
   <% for(var i = 0 ; i < ogretmenler.length ; i++) { %>
-    <option value="<%ogretmenler[0].brans%>"><%=ogretmenler[i].adsoyad%></option>
+  <option value="<%=ogretmenler[i].id%>"><%=ogretmenler[i].adsoyad%></option>
+
   <% } %>
-
-
 </select>
+  <input class="btn btn-danger" type="submit" value="Mesaj Gönder" >
 
-<a href="/"><button  type="button" class="btn btn-danger">Sistemden Cikis</button></a>
 
-<textarea class="mt-2" name="name" rows="8" cols="80" placeholder="Buraya mesajinizi yaziniz"></textarea>
+<a href="/"><button  type="button" class="btn btn-danger ml-5">Sistemden Cikis</button></a>
+
+<textarea class="mt-2" name="mesaj" rows="8" cols="80" placeholder="Buraya mesajinizi yaziniz"></textarea>
 </div>
 
-
+</form>
 
     </div>
 

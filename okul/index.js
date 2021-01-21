@@ -347,16 +347,74 @@ app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
 
 });
 
+app.get("/mesaj",function(req,res){
+
+
+
+  res.render("mesaj");
+});
 
 
 
 
+app.post("/mesajgonder",   upload.single('dosya') , function(req,res){
+
+  var secilenOgretmen = req.body.secilenOgretmen;
+  var mesaj = req.body.mesaj;
+  var mesajogrenci=req.body.mesajogrenci;
+  console.log("---------");
+  console.log("secilenOgretmenid :"+secilenOgretmen);
+  console.log(mesaj);
+  console.log("mesajogrenciid: "+mesajogrenci);
+
+  var sql = "INSERT INTO okul.mesajlar (ogretmenid, ogrenciid, mesaj) VALUES('"+secilenOgretmen+"','"+ mesajogrenci+"', '"+mesaj+"')";
+  connection.query(sql, function(err, results, fields){
+
+  });
+
+  res.render("mesaj",{mesaj:mesaj,
+                      secilenOgretmen:secilenOgretmen,
+                      mesajogrenci:mesajogrenci
+
+  });
+
+
+});
+
+app.post("/ogretmenmesaj",  upload.single('dosya') ,function(req,res){
+
+  console.log(yetkiliOgretmen);
+  var mesajalanogretmenid=req.body.mesajalanogretmenid;
+  console.log("mesajalanogretmenid:"+mesajalanogretmenid);
+
+  var sql1= "SELECT * FROM okul.ogretmenler WHERE id= "+mesajalanogretmenid;
+
+  connection.query(sql1, function(err,results,fields){
+
+    var mesajalanadsoyad = results[0].adsoyad;
+    console.log("mesajalan:"+mesajalanadsoyad);
+
+    var sql2="SELECT * FROM okul.ogrenciler INNER JOIN okul.mesajlar ON okul.ogrenciler.id=okul.mesajlar.ogrenciid WHERE ogretmenid="+mesajalanogretmenid;
+    connection.query(sql2, function(err,results,fields){
+
+        var tümbilgilermesajatan=results;
+        console.log(tümbilgilermesajatan);
+
+        res.render("mesajkutusu",{
+
+                                  mesajalanogretmenid:mesajalanogretmenid,
+                                  mesajalanadsoyad:mesajalanadsoyad,
+                                  tümbilgilermesajatan:tümbilgilermesajatan
+
+        })
+    })
+
+
+  })
 
 
 
-
-
-
+});
 
 
 

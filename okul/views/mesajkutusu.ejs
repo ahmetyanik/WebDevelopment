@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body class="" >
+
+    <div class="container mt-5 mesajsayfasi ">
+
+<div class="d-flex justify-content-center">
+  <h4><%=mesajalanadsoyad%> Mesaj Sayfasi</h4>
+</div>
+
+
+
+
+    <% for (var i=0;i<tümbilgilermesajatan.length;i++) {%>
+
+<div class="d-flex align-items-center">
+  <div class="d-flex align-items-center">
+  <h6>(<%=i+1%>)<%=tümbilgilermesajatan[i].adsoyad%>: </h6>
+  </div>
+
+  <div class="pt-2 pl-2">
+    <p><%=tümbilgilermesajatan[i].mesaj%></p>
+
+  </div>
+
+
+</div>
+
+
+    <%}%>
+
+
+  </div>
+  </body>
+</html>

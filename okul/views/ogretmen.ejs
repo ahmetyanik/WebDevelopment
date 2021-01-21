@@ -71,6 +71,7 @@
 <h6>Adresi            :<%=ogretmen[0].adres%></h6>
 
 
+
     </div>
 
     <div class="col-6 d-flex justify-content-center sutun">
@@ -84,13 +85,20 @@
 
 
 
-
-
-    <button type="button" class="btn btn-secondary">Mesajlar</button>
     <button type="button" class="btn btn-primary">Sinif Listesi</button>
     <button type="button" class="btn btn-secondary">Ders Programi</button>
   </div>
+
 </form>
+
+<form class="d-flex" enctype="multipart/form-data" action="/ogretmenmesaj" method="post">
+
+    <a href="/ogretmenmesaj"><button type="submit" class="btn btn-secondary ml-1">Mesajlar</button></a>
+
+    <input class="form-control mb-2 d-none" type="text" name="mesajalanogretmenid" value="<%=ogretmen[0].id%>" placeholder="<%=ogretmen[0].id%>">
+</form>
+
+
 
 
       <div class="kirmizi">

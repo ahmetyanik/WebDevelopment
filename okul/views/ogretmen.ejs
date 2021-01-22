@@ -93,7 +93,7 @@
 
 <form class="d-flex" enctype="multipart/form-data" action="/ogretmenmesaj" method="post">
 
-    <a href="/ogretmenmesaj"><button type="submit" class="btn btn-secondary ml-1">Mesajlar</button></a>
+    <a href="/ogretmenmesaj"><button type="submit" class="btn btn-secondary ml-1">Mesajlar  <span class="badge rounded-pill bg-warning text-dark"><%=ogretmenmesajsayisi%></span></button></a>
 
     <input class="form-control mb-2 d-none" type="text" name="mesajalanogretmenid" value="<%=ogretmen[0].id%>" placeholder="<%=ogretmen[0].id%>">
 </form>

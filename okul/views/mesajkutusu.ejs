@@ -11,19 +11,21 @@
   </head>
   <body class="" >
 
-    <div class="container mt-5 mesajsayfasi ">
+    <div class="container mt-5 mesajsayfasi pb-3">
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center ">
   <h4><%=mesajalanadsoyad%> Mesaj Sayfasi</h4>
 </div>
 
 
 
-
     <% for (var i=0;i<tümbilgilermesajatan.length;i++) {%>
 
-<div class="d-flex align-items-center">
+
+
+<div class="d-flex align-items-center alert alert-info ">
   <div class="d-flex align-items-center">
+    <img class="foto" src="<%=tümbilgilermesajatan[i].resimlinki%>" alt="">
   <h6>(<%=i+1%>)<%=tümbilgilermesajatan[i].adsoyad%>: </h6>
   </div>
 

@@ -182,7 +182,8 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 
   var sql="SELECT * FROM okul.ogretmenler WHERE adsoyad='"+adsoyad+"' AND sifre='"+sifre+"'";
 
-    connection.query(sql,  function(err, results, fields){
+
+    connection.query(sql,   function(err, results, fields){
       var bulunanOgretmen=results;
       yetkiliOgretmen=bulunanOgretmen[0].adsoyad;
       yetkiliOgretmenBrans=bulunanOgretmen[0].brans;
@@ -246,11 +247,20 @@ app.post("/ogretmengiriskontrol",upload.single('dosya'),function(req,res){
 
       if(bulunanOgretmen.length>0){
 
+        connection.query("SELECT * FROM okul.ogrenciler INNER JOIN okul.mesajlar ON okul.ogrenciler.id=okul.mesajlar.ogrenciid WHERE ogretmenid="+bulunanOgretmen[0].id,   function(err, results, fields){
+
+          var ogretmenmesajsayisi=results.length;
+          console.log("ogretmenmesajsayisi: "+ogretmenmesajsayisi);
+          console.log("bulunanOgretmen"+bulunanOgretmen[0].id);
+
+
+
         res.render("ogretmen", {ogretmen:bulunanOgretmen,
-                                yetkiliOgretmen:yetkiliOgretmen});
+                                yetkiliOgretmen:yetkiliOgretmen,
+                                ogretmenmesajsayisi:ogretmenmesajsayisi});
 
 
-
+  });
       }else{
 
         res.send("Bilgi Bulunamadi!");

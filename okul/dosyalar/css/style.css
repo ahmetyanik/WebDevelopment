@@ -81,3 +81,8 @@ text-decoration: none;
 .mesajsayfasi{
   background-color: #f7f7e8;
 }
+
+.foto{
+  width: 3rem;
+  border-radius: 50%;
+}

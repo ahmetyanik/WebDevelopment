@@ -426,6 +426,19 @@ app.post("/ogretmenmesaj",  upload.single('dosya') ,function(req,res){
 
 });
 
+app.post("/mesajsil",  upload.single('dosya')   ,  function(req, res){
+
+    var mesajid= req.body.mesajid;
+    console.log(mesajid);
+
+
+
+    var sql = "DELETE FROM okul.mesajlar WHERE mesajid='"+mesajid+"'";
+    connection.query(sql, function(err, results, fields){
+        
+    });
+});
+
 
 
 

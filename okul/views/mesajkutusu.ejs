@@ -8,8 +8,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   </head>
-  <body class="" >
+  <body class="mesajkutusubody" >
 
     <div class="container mt-5 mesajsayfasi pb-3">
 
@@ -19,21 +20,34 @@
 
 
 
+
+
     <% for (var i=0;i<tümbilgilermesajatan.length;i++) {%>
 
 
 
-<div class="d-flex align-items-center alert alert-info ">
-  <div class="d-flex align-items-center">
-    <img class="foto" src="<%=tümbilgilermesajatan[i].resimlinki%>" alt="">
-  <h6>(<%=i+1%>)<%=tümbilgilermesajatan[i].adsoyad%>: </h6>
+<div class="d-flex align-items-center alert alert-info justify-content-between">
+  <div class="">
+    <div class="d-flex align-items-center">
+      <img class="foto" src="<%=tümbilgilermesajatan[i].resimlinki%>" alt="">
+    <h6>(<%=i+1%>)<%=tümbilgilermesajatan[i].adsoyad%>: </h6>
+    <div class="pt-2 pl-2">
+      <p><%=tümbilgilermesajatan[i].mesaj%></p>
+
+    </div>
+    </div>
+
+
+
   </div>
 
-  <div class="pt-2 pl-2">
-    <p><%=tümbilgilermesajatan[i].mesaj%></p>
-
-  </div>
-
+<div class="d-flex">
+  <a href="#"><i class="fas fa-reply mr-3"></i></a>
+<form enctype="multipart/form-data" action="/mesajsil" class="form-signin" method="post">
+  <button class="copkutusu" onclick="" type="submit" name="button"><i class="fas fa-trash-alt"></i></button>
+  <input class="d-none" type="text" name="mesajid" value=" <%=tümbilgilermesajatan[i].mesajid%>">
+</form>
+</div>
 
 </div>
 
@@ -42,5 +56,10 @@
 
 
   </div>
+
+
+
+
+
   </body>
 </html>

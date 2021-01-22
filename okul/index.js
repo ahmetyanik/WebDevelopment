@@ -294,6 +294,8 @@ app.post("/ogrencinotsayfasi",upload.single('dosya'),function(req,res){
     var bulunanOgrenci = results[0];
     var bulunanNotlar =results[1];
 
+    console.log("bulunanNotlar: "+bulunanNotlar);
+
 
 
 
@@ -435,7 +437,7 @@ app.post("/mesajsil",  upload.single('dosya')   ,  function(req, res){
 
     var sql = "DELETE FROM okul.mesajlar WHERE mesajid='"+mesajid+"'";
     connection.query(sql, function(err, results, fields){
-        
+
     });
 });
 

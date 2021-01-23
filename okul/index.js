@@ -361,11 +361,13 @@ app.post("/veritabaninaNotGonder",   upload.single('dosya') , function(req,res){
 
 app.get("/mesaj",function(req,res){
 
-
-
   res.render("mesaj");
 });
 
+app.get("/mesajsilme",function(req,res){
+
+  res.render("mesajsilme");
+});
 
 
 
@@ -437,6 +439,8 @@ app.post("/mesajsil",  upload.single('dosya')   ,  function(req, res){
 
     var sql = "DELETE FROM okul.mesajlar WHERE mesajid='"+mesajid+"'";
     connection.query(sql, function(err, results, fields){
+
+      res.redirect("/mesajsilme")
 
     });
 });

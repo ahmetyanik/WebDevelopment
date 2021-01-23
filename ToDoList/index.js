@@ -7,7 +7,7 @@ app.use(express.static(__dirname + "/dosyalar"));
 const mongoose=require("mongoose");
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb+srv://ahmet:1234@cluster0.iblch.mongodb.net/Cluster0?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
+mongoose.connect("mongodb+srv://ahmet:1234@isimler.iblch.mongodb.net/Cluster0?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
 
 var yapilacakListesi = new Schema(
   {

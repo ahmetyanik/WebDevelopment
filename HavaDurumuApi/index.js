@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 
 app.get("/", function(req, res){
     var link = "https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=40b46f4fead5a3da313c8caccc44aa5d";
+
+
     https.get(link, function(response){
       console.log('statusCode:', response.statusCode);
       response.on("data", function(gelenData){

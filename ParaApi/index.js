@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.get("/",function(req,res){
 
-  var link = "https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=a7ccf39f58624360e151dce17c818ef3";
+  var link = "https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=a7ccf39f58624360e151dce17c818ef3";
 
   https.get(link, function(response){
 

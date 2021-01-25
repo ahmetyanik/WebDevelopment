@@ -1,15 +1,25 @@
+require('dotenv').config();
 const express    = require("express");
 const bodyParser = require("body-parser");
 const app        = express();
 const mongoose   = require("mongoose");
-const encrypt    = require("mongoose-encryption");
+const bcrypt = require('bcrypt');
+const saltRounds=10;
+//var md5 = require('md5');
+//const encrypt    = require("mongoose-encryption");
+
+var sifre = 123456;
+
+
+
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/dosyalar"));
 app.use(bodyParser.urlencoded( {extended: true} ));
 
 
 const Schema = mongoose.Schema;
-mongoose.connect("mongodb+srv://ahmet:1234@cluster1.v1mua.mongodb.net/Cluster1?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
+mongoose.connect(process.env.BAGLANTI,{useNewUrlParser:true, useUnifiedTopology:true});
 
 
 
@@ -17,8 +27,14 @@ const uyeSemasi = new mongoose.Schema ({
   email : String,
   sifre : String
 });
-const anahtar =  "Techproeducation.1234";
-uyeSemasi.plugin(encrypt, {secret : anahtar , encryptedFields  : ['sifre'] });
+
+
+
+//uyeSemasi.plugin(encrypt, {secret : process.env.ANAHTAR , encryptedFields  : ['sifre'] });
+
+
+
+
 const Kullanici = new mongoose.model("Kullanici", uyeSemasi);
 app.get("/", function(req, res){
   res.render("anasayfa");
@@ -27,16 +43,23 @@ app.get("/kayitol", function(req, res){
   res.render("kayitol");
 });
 app.post("/kayitol", function(req, res){
-  const uye = new Kullanici({
-    email : req.body.username,
-    sifre : req.body.password
+
+  bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+
+    const uye = new Kullanici({
+      email : req.body.username,
+      sifre : hash
+    });
+    uye.save(function(err){
+      if(err)
+        console.log(err);
+      else
+        res.render("gizlisayfa");
+    });
+
   });
-  uye.save(function(err){
-    if(err)
-      console.log(err);
-    else
-      res.render("gizlisayfa");
-  });
+
+
 })
 app.get("/giris", function(req, res){
   res.render("giris");
@@ -49,13 +72,16 @@ app.post("/girisyap", function(req, res){
       console.log(err);
     }else{
       if(gelenVeri){ // gelen veri var mı
-        if(gelenVeri.sifre == sifreGelen){
-          res.render("gizlisayfa");
-        }else{
-          res.send("Şifre hatalı");
-        }
+
+        bcrypt.compare(sifreGelen, gelenVeri.sifre, function(err, result) {
+            if(result) // şifreler aynı
+              res.render("gizlisayfa");
+            else
+              res.send("Şifre hatalı");
+        });
       }else{
         res.send("Böyle bir kullanıcı yok.");
+
       }
     }
   });

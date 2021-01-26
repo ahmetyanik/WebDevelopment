@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Anasayfa</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
+  </head>
+  <body class="container mt-2">
+
+  <div class="container d-flex flex-wrap justify-content-center">
+    <% for(var i=0;i<hayvanlar.length;i++) {%>
+
+      <div class="card mr-2" style="width: 18rem;">
+        <img src="<%=hayvanlar[i].resimlinki%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%=hayvanlar[i].ad%></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%=hayvanlar[i].tur%></li>
+          <li class="list-group-item"><%=hayvanlar[i].ad%></li>
+          <li class="list-group-item"><%=hayvanlar[i].anavatani%></li>
+        </ul>
+
+      </div>
+
+
+
+
+    <%}%>
+
+
+</div>
+
+
+  </body>
+</html>

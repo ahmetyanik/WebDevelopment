@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <%-include("header")-%>
+
+    <div class="container mt-5 d-flex flex-wrap">
+
+
+      <% for(var i=0;i<bolgeAdlari.length;i++){ %>
+
+
+
+          <div class="card ml-2 mt-2" style="width: 18rem;">
+            <img src="/resimler/<%=bolgeAdlari[i]%>.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=bolgeAdlari[i]%></h5>
+              <p class="card-text"></p>
+              <a href="/bolgeler/<%=bolgeAdlari[i]%>" class="btn btn-primary"><%=bolgeAdlari[i]%> Bölgesi</a>
+            </div>
+          </div>
+
+
+
+
+
+  <% } %>
+
+
+
+    </div>
+
+
+
+  </body>
+</html>

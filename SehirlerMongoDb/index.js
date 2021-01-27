@@ -104,7 +104,7 @@ app.post("/ekle", function(req,res){
 
     Bolge.find({bolgeAdi:bolge},function(err,gelenBolgeler){
 
-      console.log(gelenBolgeler.bolgeAdi);
+
 
       res.render("bolge",{bolge:gelenBolgeler});
     });
@@ -112,9 +112,46 @@ app.post("/ekle", function(req,res){
 
   });
 
+  app.get("/bolgeler/:bolgeAdi/:sehir", function(req,res){
+
+    var bolge = req.params.bolgeAdi;
+    var sehir = req.params.sehir;
+    console.log("sehir:"+sehir);
+    var link = "https://api.openweathermap.org/data/2.5/weather?q="+sehir+"&appid=a7ccf39f58624360e151dce17c818ef3";
+
+    https.get(link, function(response){
+
+      console.log("statusCode: ", response.statusCode);
+
+      response.on("data", function(gelenData){
+
+        console.log(gelenData);
+
+        var havaDurumu = JSON.parse(gelenData);
 
 
 
+        console.log(havaDurumu);
+
+
+
+
+
+
+    Bolge.find({ilAdi:sehir},function(err,gelenSehir){
+
+
+
+      res.render("sehir",{sehir:gelenSehir,
+                          sehirHava:havaDurumu});
+    });
+
+
+  });
+
+  });
+
+  });
 
 
 

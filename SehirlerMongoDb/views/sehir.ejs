@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
+  </head>
+  <body>
+<%-include("header")-%>
+
+
+    <div class="container mt-3 shadow">
+
+      <div class="row">
+
+
+
+        <div class="col-5">
+          <h3><%=sehir[0].ilAdi%> </h3>
+          <img style="width:22rem" class="mb-2" src="/resimler/<%=sehir[0].ilAdi%>.png" alt="">
+
+
+
+        </div>
+
+        <div class="col-7 pt-3">
+
+          <div class="row">
+
+            <div class="col-4">
+              <div class="d-flex justify-content-center">
+                <h6>Sicaklik</h3>
+              </div>
+                <div class="d-flex justify-content-center pt-3">
+              <h5 style="font-size:4rem"><%=(sehirHava.main.temp-273).toFixed(2)%>°</h5>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="d-flex justify-content-center">
+                <h6>Hava Durumu</h3>
+              </div>
+                <div class="d-flex justify-content-center">
+                <img style="width:10rem" src="\resimler\<%=sehirHava.weather[0].icon%>@2x.png" alt="">
+            </div>
+            </div>
+
+            <div class="col-4">
+              <div class="d-flex justify-content-center">
+                <h6>Nem</h3>
+              </div>
+                <div class="d-flex justify-content-center">
+                <h5 style="font-size:4rem"><%=(sehirHava.main.humidity).toFixed(2)%></h5>
+            </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+  </div>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+  </body>
+</html>

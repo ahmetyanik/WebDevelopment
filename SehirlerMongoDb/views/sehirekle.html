@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <div class="container shadow">
+
+      <div class="p-3 ">
+        <h3 class="p-2 text-center bg-info text-white ">
+          Sehir Ekle
+        </h3>
+
+        
+        <form enctype="multipart/form-data" action="ekle" method="post">
+          <div class="row mb-2">
+            <div class="col">
+              <input required class="form-control" type="text" name="bolgeAdi" placeholder="Bölge">
+            </div>
+            <div class="col">
+              <input required class="form-control" type="text" name="ilAdi" placeholder="Sehir">
+            </div>
+            <div class="col">
+              <input required class="form-control" type="text" name="ilNufus" placeholder="Nüfus">
+            </div>
+
+          </div>
+          <div class="row mb-2">
+          <div class="col">
+            <input required class="form-control mb-2" type="text" name="ilPlakaNo" placeholder="Plaka No">
+          </div>
+          <div class="col">
+            <input required class="form-control mb-2" type="text" name="ilceSayisi" placeholder="Ilce Sayisi">
+          </div>
+          </div>
+
+
+          <div class="col form-control mb-2 d-flex align-items-center">
+              <span>Resim Seçiniz : </span>
+              <input required class="pl-3" name="dosya" id="dosya" type="file">
+
+          </div>
+          <div class="col w-100">
+            <input required class="form-control mb-2" type="text" name="resimlinki" placeholder="Lütfen sectiginiz resmin uzantisiz bir sekilde adini giriniz">
+          </div>
+          <input class="w-100 btn btn-danger" type="submit" value="Ekle" >
+        </form>
+        <a href="/">  <input style="height:5rem; background-color:#e8eae6; color:red" class="w-100 btn btn-danger mt-2" type="submit" value="ANASAYFA" ></a>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+  </body>
+</html>

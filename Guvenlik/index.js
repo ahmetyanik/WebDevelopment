@@ -6,6 +6,9 @@ const mongoose   = require("mongoose");
 const session    = require("express-session");
 const passport   = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const findOrCreate = require("mongoose-findorcreate");
+
 //const bcrypt     = require('bcrypt');
 //const saltRounds = 10;
 //const md5        = require("md5");
@@ -25,9 +28,11 @@ mongoose.set("useCreateIndex", true);
 const Schema = mongoose.Schema;
 const uyeSemasi = new mongoose.Schema ({
   username : String,
-  sifre : String
+  sifre : String,
+  googleId:String
 });
 uyeSemasi.plugin(passportLocalMongoose);
+uyeSemasi.plugin(findOrCreate);
 //uyeSemasi.plugin(encrypt, {secret : process.env.ANAHTAR , encryptedFields  : ['sifre'] });
 const Kullanici = new mongoose.model("Kullanici", uyeSemasi);
 passport.use(Kullanici.createStrategy());
@@ -41,6 +46,25 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:5000/auth/google/hosgeldin",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+
+    console.log(profile);
+
+    Kullanici.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+
+
 app.get("/", function(req, res){
   if(req.isAuthenticated()){
     res.send("sen daha önceden giriş yapmıştın. o yüzden sana farklı bir sayfa göstereceğim");
@@ -48,6 +72,17 @@ app.get("/", function(req, res){
     res.render("anasayfa");
   }
 });
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+  app.get('/auth/google/hosgeldin',
+    passport.authenticate('google', { failureRedirect: '/girisyap' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.render("gizlisayfa");
+    });
+
 app.get("/kayitol", function(req, res){
   res.render("kayitol");
 });

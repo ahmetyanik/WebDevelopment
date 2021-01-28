@@ -1,9 +1,20 @@
+const multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/dosyalar/resimler')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+  }
+});
+var upload = multer({ storage: storage });
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded( {extended : true} ));
 app.use(express.static(__dirname + "/dosyalar"));
+app.use(bodyParser.json());
 const mongoose=require("mongoose");
 const Schema = mongoose.Schema;
 const https      = require("https");
@@ -22,11 +33,12 @@ var bolgeler = new Schema(
     resimlinki:String
 
 
-
   }
 );
 
 var Bolge = mongoose.model("Bolge",bolgeler);
+var bolgeAdlari = [];
+
 
 
 
@@ -41,7 +53,7 @@ console.log(ilAdi);
 
   Bolge.find({},function(err, gelenVeriler){
 
-    var bolgeAdlari = [];
+
 
 
   for(var i=0;i<gelenVeriler.length;i++){
@@ -63,7 +75,12 @@ console.log(ilAdi);
 
 });
 
-app.post("/ekle", function(req,res){
+app.post("/ekle", upload.single('dosya')  , function(req,res){
+
+  var resimlinki = "";
+  if(req.file){
+    resimlinki = "/resimler/"+(req.file.filename).toLowerCase();
+  }
 
   var bolgeAdi= req.body.bolgeAdi;
   var ilAdi = req.body.ilAdi;
@@ -73,6 +90,10 @@ app.post("/ekle", function(req,res){
   var ilceSayisi = req.body.ilceSayisi;
   var ilceAdi=req.body.ilceAdi;
   var resimlinki=req.body.resimlinki;
+
+  bolgeAdlari.push(ilAdi);
+
+  console.log("resimlinki:" +resimlinki);
 
   console.log("----------------------");
   var il = new Bolge(
@@ -91,7 +112,7 @@ app.post("/ekle", function(req,res){
 
   il.save(function(err){
 
-    res.redirect("anasayfa");
+    res.redirect("/");
   });
 
 
@@ -106,7 +127,8 @@ app.post("/ekle", function(req,res){
 
 
 
-      res.render("bolge",{bolge:gelenBolgeler});
+      res.render("bolge",{bolge:gelenBolgeler,
+                          bolgeAdlari:bolgeAdlari});
     });
 
 
@@ -143,18 +165,64 @@ app.post("/ekle", function(req,res){
 
 
       res.render("sehir",{sehir:gelenSehir,
-                          sehirHava:havaDurumu});
+                          sehirHava:havaDurumu,
+                          bolgeAdlari:bolgeAdlari});
+    });
+  });
+  });
+  });
+
+  app.get("/arama", function(req,res){
+
+    var aranan = (req.query.arananKonum).substring(0,1).toUpperCase()+(req.query.arananKonum).substring(1).toLowerCase();
+
+    var link = "https://api.openweathermap.org/data/2.5/weather?q="+aranan+"&appid=a7ccf39f58624360e151dce17c818ef3";
+
+    https.get(link, function(response){
+
+      console.log("statusCode: ", response.statusCode);
+
+      response.on("data", function(gelenData){
+
+        console.log(gelenData);
+
+        var havaDurumu = JSON.parse(gelenData);
+
+
+
+        console.log(havaDurumu);
+
+
+
+
+
+
+    Bolge.find({ilAdi:aranan},function(err,gelenSehir){
+
+      if(gelenSehir.length==0){
+        res.send("Aradiginiz sehir bulunamadi!");
+      }else{
+
+        res.render("sehir",{sehir:gelenSehir,
+                            sehirHava:havaDurumu,
+                            bolgeAdlari:bolgeAdlari});
+
+      }
+
     });
 
-
   });
 
-  });
+});
 
-  });
+});
 
 
 
+app.get("/api/sehirekle",function(req,res){
+
+    res.sendFile(__dirname + "/views/sehirekle.html");
+});
 
 
 

@@ -58,7 +58,7 @@ console.log(ilAdi);
                           bolgeAdlari:bolgeAdlari
         });
 
-  });
+});
 
 
 });

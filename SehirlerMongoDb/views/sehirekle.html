@@ -17,8 +17,8 @@
           Sehir Ekle
         </h3>
 
-        
-        <form enctype="multipart/form-data" action="ekle" method="post">
+
+        <form enctype="multipart/form-data" action="/ekle" method="post">
           <div class="row mb-2">
             <div class="col">
               <input required class="form-control" type="text" name="bolgeAdi" placeholder="Bölge">
@@ -42,13 +42,13 @@
 
 
           <div class="col form-control mb-2 d-flex align-items-center">
-              <span>Resim Seçiniz : </span>
-              <input required class="pl-3" name="dosya" id="dosya" type="file">
+              <span>Sehir Resmi Seçiniz (Lütfen sectiginiz resmin adi sehir adiyla ayni olsun) : </span>
+              <input required class="pl-3" name="dosya" id="dosya" type="file" >
 
           </div>
-          <div class="col w-100">
-            <input required class="form-control mb-2" type="text" name="resimlinki" placeholder="Lütfen sectiginiz resmin uzantisiz bir sekilde adini giriniz">
-          </div>
+
+
+
           <input class="w-100 btn btn-danger" type="submit" value="Ekle" >
         </form>
         <a href="/">  <input style="height:5rem; background-color:#e8eae6; color:red" class="w-100 btn btn-danger mt-2" type="submit" value="ANASAYFA" ></a>

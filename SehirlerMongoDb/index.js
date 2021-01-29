@@ -89,11 +89,12 @@ app.post("/ekle", upload.single('dosya')  , function(req,res){
   var bolgeAdi= req.body.bolgeAdi;
   var ilceSayisi = req.body.ilceSayisi;
   var ilceAdi=req.body.ilceAdi;
-  var resimlinki=req.body.resimlinki;
+  var resimlinki=bolgeAdi;
 
-  bolgeAdlari.push(ilAdi);
+
 
   console.log("resimlinki:" +resimlinki);
+  console.log("ilAdi: "+ilAdi);
 
   console.log("----------------------");
   var il = new Bolge(
@@ -121,11 +122,11 @@ app.post("/ekle", upload.single('dosya')  , function(req,res){
   app.get("/bolgeler/:bolgeAdi", function(req,res){
 
     var bolge = req.params.bolgeAdi;
-    console.log(bolge);
+
 
     Bolge.find({bolgeAdi:bolge},function(err,gelenBolgeler){
 
-
+console.log(gelenBolgeler);
 
       res.render("bolge",{bolge:gelenBolgeler,
                           bolgeAdlari:bolgeAdlari});
